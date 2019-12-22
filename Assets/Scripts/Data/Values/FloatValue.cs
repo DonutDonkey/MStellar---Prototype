@@ -6,5 +6,23 @@ namespace Data.Values {
         public float value;
 
         public static implicit operator float(FloatValue floatValue) => floatValue.value;
+
+        public static FloatValue operator -(FloatValue floatValue, float value) {
+            floatValue.value -= value;
+            return floatValue;
+        }
+
+        public static FloatValue operator +(FloatValue floatValue, float value) {
+            floatValue.value += value;
+            return floatValue;
+        }        
+        
+        public static bool operator >(FloatValue floatValue, float value) {
+            return floatValue.value > value;
+        }
+
+        public static bool operator <(FloatValue floatValue, float value) {
+            return floatValue.value < value;
+        }
     }
 }
