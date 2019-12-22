@@ -32,8 +32,8 @@ namespace Actor.Player {
             CheckSpeedIncrease();
 
             var motion = _playerInputHandler
-                .GetMotion(Input.GetAxis(MsConstants.AXIS_NAME_HORIZONTAL),
-                             Input.GetAxis(MsConstants.AXIS_NAME_VERTICAL));
+                .GetMotion(_playerInputHandler.GetHorizontalMovement(),
+                             _playerInputHandler.GetVerticalMovement());
 
             _velocity.y = _playerInputHandler.GetVelocity(_velocity);
             _velocity.y = _playerInputHandler.GetJumpVelocity(_velocity, jumpForce);
@@ -45,7 +45,7 @@ namespace Actor.Player {
         }
 
         private void CheckSpeedIncrease() {
-            if(!characterController.isGrounded) return;
+            if(!_playerInputHandler.IsGrounded()) return;
             if (!_isJumping) return;
             
             _isJumping = false;

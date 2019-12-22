@@ -7,8 +7,8 @@ namespace Actor.Player.Camera {
         
         [SerializeField] private Transform playerCamTransform;
         
-        [SerializeField] private float maxAngle = 10f;
-        [SerializeField] private float rate = 5f;
+        [SerializeField] private float maxAngle = 5f;
+        [SerializeField] private float rate = 10f;
         
         private void FixedUpdate() => CameraShift(Input.GetAxis(MsConstants.AXIS_NAME_HORIZONTAL));
 

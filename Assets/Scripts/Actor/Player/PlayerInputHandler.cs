@@ -15,11 +15,11 @@ namespace Actor.Player {
             _characterController = GetComponent<CharacterController>();
         }
 
-        public float GetVerticalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_VERTICAL) 
-                                              * mouseSensitivity * Time.deltaTime;
+        public float GetMouseVerticalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_VERTICAL) 
+                                                   * mouseSensitivity * Time.deltaTime;
         
-        public float GetHorizontalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_HORIZONTAL) 
-                                              * mouseSensitivity * Time.deltaTime;
+        public float GetMouseHorizontalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_HORIZONTAL) 
+                                                     * mouseSensitivity * Time.deltaTime;
 
         public Vector3 GetMotion(float horizontal, float vertical) => transform.right * horizontal + 
                                                                       transform.forward * vertical;
@@ -33,5 +33,11 @@ namespace Actor.Player {
                 : velocity.y;
         
         public bool IsJumping() => Input.GetButton(MsConstants.JUMP_INPUT_NAME);
+
+        public float GetVerticalMovement() => Input.GetAxis(MsConstants.AXIS_NAME_VERTICAL);
+        
+        public float GetHorizontalMovement() => Input.GetAxis(MsConstants.AXIS_NAME_HORIZONTAL);
+
+        public bool IsGrounded() => _characterController.isGrounded;
     }
 }
