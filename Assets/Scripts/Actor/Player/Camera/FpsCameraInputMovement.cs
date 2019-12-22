@@ -3,7 +3,7 @@ using Data.Values;
 using UnityEngine;
 
 namespace Actor.Player.Camera {
-    public class FpsCameraHeadBop : MonoBehaviour {
+    public class FpsCameraInputMovement : MonoBehaviour {
         [SerializeField] private FloatValue bobbingSpeed;
         [SerializeField] private FloatValue bobbingAmount;
 
