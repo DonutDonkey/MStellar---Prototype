@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 16810404845700f408fe1a1303514f0b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.61822397, g: 0.5192404, b: 0.5365233, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,7 +399,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1512,7 +1512,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30276
+  m_Name: pb_Mesh16812
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1773,7 +1773,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1846,27 +1845,13 @@ Transform:
   m_Father: {fileID: 1316898515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7440bf47e2554ebcabcdb01f53adbc5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boppingSpeed: {fileID: 11400000, guid: f4d4347c8b1bc45428a59793b70bdd1b, type: 2}
-  boppingAmount: {fileID: 11400000, guid: d26d33023b095974fbb5391e5f76c9d6, type: 2}
 --- !u!43 &1122049392
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30258
+  m_Name: pb_Mesh16794
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2037,8 +2022,9 @@ GameObject:
   - component: {fileID: 1181226785}
   - component: {fileID: 1181226788}
   - component: {fileID: 1181226787}
-  - component: {fileID: 1181226789}
   - component: {fileID: 1181226790}
+  - component: {fileID: 1181226791}
+  - component: {fileID: 1181226789}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2123,6 +2109,7 @@ MonoBehaviour:
   playerCamTransform: {fileID: 963194228}
   maxAngle: 5
   rate: 10
+  maxDistance: 0.32
 --- !u!114 &1181226788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,12 +2133,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181226782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e96fbeaab44c2986437e4072973311, type: 3}
+  m_Script: {fileID: 11500000, guid: 358fb75e885044d785a10263f27857fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boppingSpeed: {fileID: 11400000, guid: 3c01ee0d3e181bb4b9cba2d27fd6d3a5, type: 2}
-  boppingAmount: {fileID: 11400000, guid: ff3e4df07feaf8f488bdcddf0c3d7767, type: 2}
-  weaponObject: {fileID: 1705835666}
+  fpsCamera: {fileID: 1316898515}
+  weapons:
+  - {fileID: 1705835667}
+  offset: {x: 0.64, y: -0.64, z: 1.29}
 --- !u!114 &1181226790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,13 +2156,28 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 7eada92bf6553184796e401dc3468c48, type: 2}
   maxArmor: {fileID: 0}
   armor: {fileID: 11400000, guid: ba2b7523f9c2ee94e9c231c67764193d, type: 2}
+--- !u!114 &1181226791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181226782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7440bf47e2554ebcabcdb01f53adbc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boppingSpeed: {fileID: 11400000, guid: f4d4347c8b1bc45428a59793b70bdd1b, type: 2}
+  boppingAmount: {fileID: 11400000, guid: d26d33023b095974fbb5391e5f76c9d6, type: 2}
+  camTransform: {fileID: 963194228}
 --- !u!43 &1218962949
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30246
+  m_Name: pb_Mesh16782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2369,7 +2372,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30332
+  m_Name: pb_Mesh16886
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2538,7 +2541,6 @@ GameObject:
   - component: {fileID: 1705835670}
   - component: {fileID: 1705835669}
   - component: {fileID: 1705835668}
-  - component: {fileID: 1705835671}
   m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2620,21 +2622,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705835666}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1705835671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705835666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358fb75e885044d785a10263f27857fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leader: {fileID: 1316898515}
-  smoothSpeed: 0.124
-  offset: {x: 0.64, y: -0.64, z: 1.28}
 --- !u!1 &2023344577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,7 +2901,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

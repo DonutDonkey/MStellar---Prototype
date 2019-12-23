@@ -1,5 +1,4 @@
-﻿using System;
-using Data.Values;
+﻿using Data.Values;
 using UnityEngine;
 
 namespace Actor.Player.Camera {
@@ -7,6 +6,8 @@ namespace Actor.Player.Camera {
         [SerializeField] private FloatValue boppingSpeed;
         [SerializeField] private FloatValue boppingAmount;
 
+        [SerializeField] private Transform camTransform;
+        
         private PlayerInputHandler _playerInputHandler;
 
         private float _timer = 0f;
@@ -14,7 +15,7 @@ namespace Actor.Player.Camera {
         private void Awake() => _playerInputHandler = GetComponentInParent<PlayerInputHandler>();
 
         private void FixedUpdate() {
-            var localPosition = transform.localPosition;
+            var localPosition = camTransform.localPosition;
             
             if (_playerInputHandler.GetGlobalMovementInput() > 0 && !_playerInputHandler.IsJumping())
                 CamMovementTransform(localPosition);
@@ -25,13 +26,13 @@ namespace Actor.Player.Camera {
         private void CamMovementTransform(Vector3 localPosition) {
             _timer += Time.deltaTime * boppingSpeed;
             
-            transform.localPosition =  SetMoveLocalPosition(localPosition);
+            camTransform.localPosition =  SetMoveLocalPosition(localPosition);
         }
         
         private void CamIdleMovement(Vector3 localPosition) {
             _timer = 0f;
 
-            transform.localPosition = SetIdleLocalPosition(localPosition);
+            camTransform.localPosition = SetIdleLocalPosition(localPosition);
         }
 
         private Vector3 SetMoveLocalPosition(Vector3 localPosition) => new Vector3(localPosition.x,
