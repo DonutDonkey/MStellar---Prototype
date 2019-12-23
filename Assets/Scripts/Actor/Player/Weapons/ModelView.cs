@@ -13,7 +13,7 @@ namespace Actor.Player.Weapons {
 
         [Tooltip("List of all weapon objects transforms")]
         [SerializeField] private List<Transform> weapons;
-        +
+        
         [SerializeField] private ModelViewOffset modelViewOffset;
 
         private Vector3 _offset;
