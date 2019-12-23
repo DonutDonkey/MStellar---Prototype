@@ -39,5 +39,8 @@ namespace Actor.Player {
         public float GetHorizontalMovement() => Input.GetAxis(MsConstants.AXIS_NAME_HORIZONTAL);
 
         public bool IsGrounded() => _characterController.isGrounded;
+
+        public float GetGlobalMovementInput() => Mathf.Abs(GetVerticalMovement()) + 
+                                                 Mathf.Abs(GetHorizontalMovement());
     }
 }

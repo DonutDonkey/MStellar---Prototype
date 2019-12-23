@@ -18,7 +18,7 @@ namespace Actor.Player.Weapons {
         private void FixedUpdate() {
             var localWeaponPosition = weaponObject.transform.localPosition;
             
-            if(Math.Abs(_playerInputHandler.GetHorizontalMovement() + _playerInputHandler.GetVerticalMovement()) > 0)
+            if(_playerInputHandler.GetGlobalMovementInput() > 0)
                 WeaponTransformMovement(localWeaponPosition);
             else
                 WeaponIdleMovement(localWeaponPosition);
