@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.61822397, g: 0.5192404, b: 0.5365233, a: 1}
+  m_IndirectSpecularColor: {r: 0.20701909, g: 0.20710912, b: 0.31419995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   fpsCamera: {fileID: 1316898515}
   weapons:
   - {fileID: 1705835667}
-  offset: {x: 0.64, y: -0.64, z: 1.29}
+  modelViewOffset: {fileID: 11400000, guid: 1f5050ea29b43604da061213a4279a3e, type: 2}
 --- !u!114 &1181226790
 MonoBehaviour:
   m_ObjectHideFlags: 0

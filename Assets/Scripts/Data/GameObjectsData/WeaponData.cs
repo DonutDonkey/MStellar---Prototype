@@ -10,14 +10,11 @@ namespace Data.GameObjectsData {
         [SerializeField] private FloatValue maxAmmunition;
         [SerializeField] private FloatValue cooldown;
         
-        [SerializeField] private BooleanValue hasProjectile;
 
         [Header("References")] 
         
         [SerializeField] private GameObject weaponObject;
-        [SerializeField] private GameObject projectileObject;
         
-        [SerializeField] private AudioClip [] audioClips;
 
         public FloatValue Ammunition => ammunition;
 
@@ -25,12 +22,7 @@ namespace Data.GameObjectsData {
 
         public FloatValue Cooldown => cooldown;
 
-        public BooleanValue HasProjectile => hasProjectile;
-
         public GameObject WeaponObject => weaponObject;
-
-        public GameObject ProjectileObject => projectileObject;
-
-        public AudioClip[] AudioClips => audioClips;
+        
     }
 }
