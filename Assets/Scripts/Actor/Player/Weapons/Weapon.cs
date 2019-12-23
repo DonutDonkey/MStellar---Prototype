@@ -5,6 +5,6 @@ namespace Actor.Player.Weapons {
     public abstract class Weapon : MonoBehaviour {
         [Header("References")]
         
-        [SerializeField] private WeaponsData weaponsData;
+        [SerializeField] private WeaponData weaponData;
     }
 }

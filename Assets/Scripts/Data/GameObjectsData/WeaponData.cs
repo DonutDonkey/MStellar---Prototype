@@ -2,8 +2,8 @@
 using UnityEngine;
 
 namespace Data.GameObjectsData {
-    [CreateAssetMenu(fileName = "New WeaponData", menuName = "Object Data/Weapon", order = 0)]
-    public class WeaponsData : ScriptableObject {
+    [CreateAssetMenu(fileName = "New Weapon Data", menuName = "Object Data/Weapon", order = 0)]
+    public class WeaponData : ScriptableObject {
         [Header("Values")]
         
         [SerializeField] private FloatValue ammunition;
@@ -15,6 +15,7 @@ namespace Data.GameObjectsData {
         [Header("References")] 
         
         [SerializeField] private GameObject weaponObject;
+        [SerializeField] private GameObject projectileObject;
         
         [SerializeField] private AudioClip [] audioClips;
 
@@ -27,6 +28,8 @@ namespace Data.GameObjectsData {
         public BooleanValue HasProjectile => hasProjectile;
 
         public GameObject WeaponObject => weaponObject;
+
+        public GameObject ProjectileObject => projectileObject;
 
         public AudioClip[] AudioClips => audioClips;
     }

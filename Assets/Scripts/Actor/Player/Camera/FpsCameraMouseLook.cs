@@ -13,6 +13,7 @@ namespace Actor.Player.Camera {
         private PlayerInputHandler _playerInputHandler;
 
         private float _xRotation = 0f;
+        
         private void Awake() {
             _playerInputHandler = GetComponent<PlayerInputHandler>();
         }

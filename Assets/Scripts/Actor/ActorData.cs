@@ -8,10 +8,10 @@ namespace Actor {
         [SerializeField] private FloatValue maxHealth;
         [SerializeField] private FloatValue health;
 
-        protected FloatValue Health { get => health; set => health = value;}
+        protected FloatValue Health { get; set; }
         protected FloatValue MaxHealth => maxHealth;
         
-        protected  Transform ActorPosition { get => _actorPosition; set => _actorPosition = value; }
+        protected  Transform ActorPosition { get; set; }
 
         private Transform _actorPosition;
 

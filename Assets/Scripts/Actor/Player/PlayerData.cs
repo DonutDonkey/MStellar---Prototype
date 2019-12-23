@@ -9,7 +9,7 @@ namespace Actor.Player {
         [SerializeField] private FloatValue armor;
 
         private FloatValue MaxArmor => maxArmor;
-        private FloatValue Armor { get => armor; set => armor = value; }
+        private FloatValue Armor { get; set; }
 
         protected override bool IsDead() => Health > 0f;
 

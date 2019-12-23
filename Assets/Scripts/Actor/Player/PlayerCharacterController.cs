@@ -24,7 +24,7 @@ namespace Actor.Player {
         
         public float speedChangeParameter = 1f;
 
-        public float Speed { get => _speed; set => _speed = value; }
+        private float Speed { get; set; }
 
         private void Awake() => _playerInputHandler = GetComponent<PlayerInputHandler>();
 
