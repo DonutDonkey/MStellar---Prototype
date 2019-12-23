@@ -1,6 +1,4 @@
-﻿using System;
-using Data;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Actor.Player.Camera {
     public class FpsCameraPitchAngles : MonoBehaviour {
