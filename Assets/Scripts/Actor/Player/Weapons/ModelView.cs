@@ -25,6 +25,10 @@ namespace Actor.Player.Weapons {
                 ? ModelViewOffset.DEFAULT_CENTERED_OFFSET_X
                 : modelViewOffset.offsetValue.x;
             
+            _offset.z = (modelViewOffset.centerModelView)
+                ? ModelViewOffset.DEFAULT_CENTERED_OFFSET_Z
+                : modelViewOffset.offsetValue.z;
+            
             foreach (var t in weapons) 
                 t.localPosition = fpsCamera.localPosition + _offset;
         }

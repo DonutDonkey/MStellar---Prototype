@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Actor.Player.Camera {
-    public class FpsCameraInputMovement : MonoBehaviour {
+    public class FpsCameraPitchMovement : MonoBehaviour {
         [SerializeField] private FloatValue boppingSpeed;
         [SerializeField] private FloatValue boppingAmount;
 
