@@ -29,16 +29,15 @@ namespace Actor.Player.Camera {
             camTransform.localPosition =  SetMoveLocalPosition(localPosition);
         }
         
+        private Vector3 SetMoveLocalPosition(Vector3 localPosition) => new Vector3(localPosition.x,
+            0 + Mathf.Sin(_timer) * boppingAmount,
+            localPosition.z);
+
         private void CamIdleMovement(Vector3 localPosition) {
             _timer = 0f;
 
             camTransform.localPosition = SetIdleLocalPosition(localPosition);
         }
-
-        private Vector3 SetMoveLocalPosition(Vector3 localPosition) => new Vector3(localPosition.x,
-            0 + Mathf.Sin(_timer) * boppingAmount,
-            localPosition.z);
-
         
         private Vector3 SetIdleLocalPosition(Vector3 localPosition) => new Vector3(localPosition.x,
             Mathf.Lerp(localPosition.y, 0, Time.deltaTime * boppingSpeed),

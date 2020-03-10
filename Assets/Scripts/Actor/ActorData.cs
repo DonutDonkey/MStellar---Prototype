@@ -8,16 +8,15 @@ namespace Actor {
         [SerializeField] private FloatValue maxHealth;
         [SerializeField] private FloatValue health;
 
+        private     Transform _actorPosition;
+        protected   Transform ActorPosition { get; set; }
+        
         protected FloatValue Health { get => health; set => health = value; }
         protected FloatValue MaxHealth => maxHealth;
-        
-        protected  Transform ActorPosition { get; set; }
-
-        private Transform _actorPosition;
-
-        protected virtual void Awake() => _actorPosition = GetComponent<Transform>();
 
         protected abstract bool IsDead();
+
+        protected virtual void Awake() => _actorPosition = GetComponent<Transform>();
 
         public virtual void TakeDamage(float value) {
             Health -= value;
