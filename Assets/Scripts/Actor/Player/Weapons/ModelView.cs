@@ -22,11 +22,11 @@ namespace Actor.Player.Weapons {
 
         private void LateUpdate () {
             _offset.x = (modelViewOffset.centerModelView)
-                ? ModelViewOffset.DEFAULT_CENTERED_OFFSET_X
+                ? modelViewOffset.centeredOffsetValue.x
                 : modelViewOffset.offsetValue.x;
             
             _offset.z = (modelViewOffset.centerModelView)
-                ? ModelViewOffset.DEFAULT_CENTERED_OFFSET_Z
+                ? modelViewOffset.centeredOffsetValue.z
                 : modelViewOffset.offsetValue.z;
             
             foreach (var t in weapons) 
