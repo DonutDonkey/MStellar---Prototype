@@ -32,7 +32,5 @@ namespace Actor.Player.Weapons {
             foreach (var t in weapons) 
                 t.localPosition = fpsCamera.localPosition + _offset;
         }
-        
-        
     }
 }

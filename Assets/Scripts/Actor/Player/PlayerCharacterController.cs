@@ -44,7 +44,7 @@ namespace Actor.Player {
         }
 
         private void CheckSpeedIncrease() {
-            if(!_playerInputHandler.IsGrounded()) return;
+            if (!_playerInputHandler.IsGrounded()) return;
             if (!_isJumping) return;
             
             _isJumping = false;
