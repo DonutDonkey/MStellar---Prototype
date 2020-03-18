@@ -7,11 +7,5 @@ namespace Data.Values {
         public Vector3 centeredOffsetValue;
 
         public BooleanValue centerModelView;
-
-        public const float DEFAULT_OFFSET_X          = 0.64f;
-        public const float DEFAULT_CENTERED_OFFSET_X = 0f;
-        public const float DEFAULT_CENTERED_OFFSET_Z = 0.32f;
-        public const float DEFAULT_OFFSET_Y          = -0.64f;
-        public const float DEFAULT_OFFSET_Z          = 1.28f;
     }
 }

@@ -25,6 +25,10 @@ namespace Actor.Player.Weapons {
                 ? modelViewOffset.centeredOffsetValue.x
                 : modelViewOffset.offsetValue.x;
             
+            _offset.y = (modelViewOffset.centerModelView)
+                ? modelViewOffset.centeredOffsetValue.y
+                : modelViewOffset.offsetValue.y;
+            
             _offset.z = (modelViewOffset.centerModelView)
                 ? modelViewOffset.centeredOffsetValue.z
                 : modelViewOffset.offsetValue.z;
