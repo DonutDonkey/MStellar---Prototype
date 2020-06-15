@@ -28,9 +28,10 @@ namespace Actor.Player {
             ? 0f 
             : velocity.y + gravity * Time.deltaTime;
 
-        public float GetJumpVelocity(Vector3 velocity, float jumpForce) => (Input.GetButton(MsConstants.JUMP_INPUT_NAME) && _characterController.isGrounded)
-            ? Mathf.Sqrt(jumpForce * -2f * gravity)
-            : velocity.y;
+        public float GetJumpVelocity(Vector3 velocity, float jumpForce) => 
+            (Input.GetButton(MsConstants.JUMP_INPUT_NAME) && _characterController.isGrounded)
+                ? Mathf.Sqrt(jumpForce * -2f * gravity)
+                : velocity.y;
         
         public float GetVerticalMovement() => Input.GetAxis(MsConstants.AXIS_NAME_VERTICAL);
 
