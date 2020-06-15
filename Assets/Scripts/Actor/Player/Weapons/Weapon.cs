@@ -1,5 +1,4 @@
-﻿using System;
-using Data.GameObjectsData;
+﻿using Data.GameObjectsData;
 using Data.Values;
 using MortemStellar;
 using UnityEngine;
@@ -22,7 +21,7 @@ namespace Actor.Player.Weapons {
         }
 
         public void Attack() {
-            _projectile = ObjectPooler.SharedInstance.GetPooledObject();
+            _projectile = ObjectPooler.SharedInstance.GetPooledObject("tag");
 
             if (_projectile.Equals(null)) 
                 return;

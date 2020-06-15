@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Actor.Player.Weapons {
     public class WeaponController : MonoBehaviour {
