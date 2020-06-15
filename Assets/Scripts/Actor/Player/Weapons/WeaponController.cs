@@ -24,7 +24,7 @@ namespace Actor.Player.Weapons {
         private void Update() {
             UpdateActiveWeapon();
             
-            if( _playerInputHandler.GetAttackButton() )
+            if(_playerInputHandler.GetAttackButton())
                 Attack();
         }
 
