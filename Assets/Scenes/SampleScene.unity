@@ -2748,6 +2748,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 215281763}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &215281765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c431021a3203add4facff381ed74435d,
+    type: 3}
+  m_PrefabInstance: {fileID: 215281763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215281766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215281765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f9d952526e46d4919a70e827cb5b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
+  weaponObject: {fileID: 215281765}
+  projectile: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!1 &484443211
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,6 +3653,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 691881331}
+  - component: {fileID: 691881333}
+  - component: {fileID: 691881332}
   m_Layer: 0
   m_Name: Weapons-Point
   m_TagString: Untagged
@@ -3654,6 +3678,33 @@ Transform:
   m_Father: {fileID: 1316898515}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691881332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691881330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edebc847a5342147934a920d6966a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &691881333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691881330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6a4fbceb31c1d49bbf7b3f81a27f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 1389314577}
+  - {fileID: 215281765}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,7 +4352,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: db6010511814b6e4298a355b1859da40,
         type: 3}
       propertyPath: m_Name
-      value: MS_MODELVIEW_HANDS
+      value: MS_MODELVIEW_WEP_00
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: db6010511814b6e4298a355b1859da40,
         type: 3}

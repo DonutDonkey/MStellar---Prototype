@@ -7,5 +7,6 @@
         public const string JOYSTICK_AXIS_NAME_VERTICAL     = "Look Y";
         public const string JOYSTICK_AXIS_NAME_HORIZONTAL   = "Look X";
         public const string JUMP_INPUT_NAME                 = "Jump";
+        public const string ATTACK_INPUT_NAME               = "Fire1";
     }
 }

@@ -1,18 +1,37 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class WeaponController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Actor.Player.Weapons {
+    public class WeaponController : MonoBehaviour {
+        [SerializeField] private List<GameObject> weapons;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private PlayerInputHandler _playerInputHandler;
         
+        private Weapon _currentActiveWeapon;
+        
+        private void Awake() => _playerInputHandler = GetComponentInParent<PlayerInputHandler>();
+
+        private void Start() => InitializeWeapons();
+        
+        private void InitializeWeapons() {
+            foreach (var variable in weapons) {
+                variable.SetActive(false);
+            }
+            weapons[0].SetActive(true);
+        }
+        private void Update() {
+            UpdateActiveWeapon();
+            
+            if( _playerInputHandler.GetAttackButton() )
+                Attack();
+        }
+
+        private void UpdateActiveWeapon() {
+            throw new NotImplementedException();
+        }
+
+        private void Attack() => _currentActiveWeapon.Attack();
     }
 }
