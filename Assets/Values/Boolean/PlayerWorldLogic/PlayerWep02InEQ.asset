@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2681b452b6264d908b6f552a81b464fb, type: 3}
-  m_Name: OModelViewOffset
+  m_Script: {fileID: 11500000, guid: d1686a7c8aac4e62897e0f34100eb8c6, type: 3}
+  m_Name: PlayerWep02InEQ
   m_EditorClassIdentifier: 
-  offsetValue: {x: 0, y: -0.26, z: 0.1}
-  centeredOffsetValue: {x: 0, y: -0.064, z: 0.32}
-  centerModelView: {fileID: 11400000, guid: f0c10e2a4e860694faece804a763b1c6, type: 2}
+  value: 0
