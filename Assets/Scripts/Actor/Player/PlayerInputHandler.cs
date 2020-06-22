@@ -40,10 +40,12 @@ namespace Actor.Player {
         public float GetGlobalMovementInput() => Mathf.Abs(GetVerticalMovement()) + 
                                                  Mathf.Abs(GetHorizontalMovement());
         
-        public bool GetAttackButton() => Input.GetButton(MsConstants.ATTACK_INPUT_NAME);
+        public bool GetAttackButton() => Input.GetButtonDown(MsConstants.ATTACK_INPUT_NAME);
         
         public bool IsJumping() => Input.GetButton(MsConstants.JUMP_INPUT_NAME);
         
         public bool IsGrounded() => _characterController.isGrounded;
+
+        public bool GetWeaponNumber(KeyCode keyCode) => Input.GetKeyDown(keyCode);
     }
 }

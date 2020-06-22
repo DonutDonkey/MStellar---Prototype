@@ -15,14 +15,22 @@ namespace Data.Values {
         public static FloatValue operator +(FloatValue floatValue, float value) {
             floatValue.value += value;
             return floatValue;
-        }        
-        
+        }
+
         public static bool operator >(FloatValue floatValue, float value) {
             return floatValue.value > value;
         }
 
+        public static bool operator >=(FloatValue floatValue, float value) {
+            return floatValue.value >= value;
+        }
+
         public static bool operator <(FloatValue floatValue, float value) {
             return floatValue.value < value;
+        }
+
+        public static bool operator <=(FloatValue floatValue, float value) {
+            return floatValue.value <= value;
         }
     }
 }

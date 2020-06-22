@@ -13,7 +13,8 @@ namespace Data.GameObjectsData {
         [SerializeField] private string projectileObjectTag;
 
         public FloatValue MaxAmmunition => maxAmmunition;
-        public FloatValue Ammunition    => ammunition;
+        public FloatValue Ammunition { get => ammunition; set => ammunition = value; }
+
         public FloatValue Cooldown      => cooldown;
 
         public string ProjectileObjectTag => projectileObjectTag;

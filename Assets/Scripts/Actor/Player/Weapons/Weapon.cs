@@ -2,6 +2,8 @@
 using Data.Values;
 using MortemStellar;
 using UnityEngine;
+using System;
+using Data;
 
 namespace Actor.Player.Weapons {
     public class Weapon : MonoBehaviour {
@@ -16,19 +18,18 @@ namespace Actor.Player.Weapons {
         [SerializeField] private Transform projectileTransform;
 
         private GameObject _projectile;
-
-        private void Awake() {
-        }
-
+        
         public void Attack() {
-            _projectile = ObjectPooler.SharedInstance.GetPooledObject("tag");
+            _projectile = ObjectPooler.SharedInstance.GetPooledObject(weaponData.ProjectileObjectTag);
 
-            if (_projectile.Equals(null)) 
+            if ( _projectile == null || weaponData.Ammunition <= 0) 
                 return;
             
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
             _projectile.SetActive(true);
+
+            weaponData.Ammunition -= 1;
         }
     }
 }
