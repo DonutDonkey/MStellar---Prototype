@@ -1,6 +1,7 @@
 ﻿using System;
 using Data;
 using Data.Values;
+using MortemStellar;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,8 @@ namespace Objects {
         [SerializeField] private FloatValue damageRadius;
         [SerializeField] private FloatValue speed;
 
+        [SerializeField] private string particleName;
+
         private Rigidbody _rigidbody;
 
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
@@ -19,8 +22,15 @@ namespace Objects {
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log(other.gameObject.name);
-            if( !other.gameObject.name.Equals("Player") )
-                gameObject.SetActive(false);
+            
+            if (other.gameObject.name.Equals("Player")) 
+                return;
+            
+            var particleObj = ObjectPooler.SharedInstance.GetPooledObject(particleName);
+            particleObj.transform.position = transform.position;
+            particleObj.SetActive(true);
+            
+            gameObject.SetActive(false);
         }
     }
 }
