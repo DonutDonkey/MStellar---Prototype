@@ -14,7 +14,7 @@ namespace Actor {
         protected FloatValue Health { get => health; set => health = value; }
         protected FloatValue MaxHealth => maxHealth;
 
-        protected abstract bool IsDead();
+        protected bool IsDead() => Health <= 0f;
 
         protected virtual void Awake() => _actorPosition = GetComponent<Transform>();
 

@@ -1,5 +1,7 @@
-﻿using Data.Values;
+﻿using System;
+using Data.Values;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Actor.Player {
     public class PlayerData : ActorData {
@@ -12,11 +14,26 @@ namespace Actor.Player {
 
         public FloatValue Armor { get => armor; set => armor = value; }
 
-        protected override bool IsDead() => Health > 0f;
-
         public override void TakeDamage(float value) {
-            Health -= value / Armor;
-            Armor -= value;
+            Debug.Log("PlayerData.TakeDamage - START");
+            
+            if (Armor > 0) {
+                Debug.Log("PlayerData.TakeDamage - SEES ARMOR SHIT");
+                Health -= value / Armor;
+                Armor -= value;
+            } else {
+                Health -= value;
+            }
+
+            ConvertToTotal();
+
+            if(IsDead())
+                Debug.Log("Actor.Player isDead");
+        }
+
+        private void ConvertToTotal() {
+            Health.value = ( Health.value < 0 ) ? 0f : Health.value;
+            Armor.value = ( Armor.value < 0 ) ? 0f : Armor.value;
         }
 
         public void IncreaseHealth(float v) => Health = (Health + v) > MaxHealth
