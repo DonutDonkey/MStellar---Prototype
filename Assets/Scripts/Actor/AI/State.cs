@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace Actor.AI {
-    public class State : MonoBehaviour, IState {
+    public abstract class State : MonoBehaviour, IState {
         [SerializeField] private List<Transition> transitions = new List<Transition>();
 
         public IState ProcessTransitions() => 
@@ -12,16 +12,10 @@ namespace Actor.AI {
                 where transition.ShouldTransition()
                 select transition.NextState).FirstOrDefault();
 
-        public void Enter() {
-            throw new System.NotImplementedException();
-        }
+        public abstract void Enter();
 
-        public void Tick() {
-            throw new System.NotImplementedException();
-        }
+        public abstract  void Tick();
 
-        public void Exit() {
-            throw new System.NotImplementedException();
-        }
+        public abstract void Exit();
     }
 }
