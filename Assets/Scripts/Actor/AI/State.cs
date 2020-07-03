@@ -5,11 +5,11 @@ using UnityEngine;
 namespace Actor.AI {
     public class State : MonoBehaviour, IState
     {
-        [SerializeField] private List<Transition> _transitions = new List<Transition>();
+        [SerializeField] private List<Transition> transitions = new List<Transition>();
 
         public IState ProcessTransitions() => 
             (from transition 
-                in _transitions 
+                in transitions 
                 where transition.ShouldTransition()
                 select transition.NextState).FirstOrDefault();
 
