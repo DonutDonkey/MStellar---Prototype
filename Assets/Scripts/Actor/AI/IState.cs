@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Actor.AI {
+﻿namespace Actor.AI {
     public interface IState {
         IState ProcessTransitions();
         void Enter();

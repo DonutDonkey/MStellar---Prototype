@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Actor.AI {
     [Serializable]
-    public class Transition : MonoBehaviour {
+    public class Transition {
         [SerializeField] private State nextState = null;
         [SerializeField] private List<Condition> conditions = new List<Condition>();
 

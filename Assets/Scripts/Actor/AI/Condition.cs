@@ -1,13 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Actor.AI {
     /**
      * Abstract condition class used to extend and create Scriptable Condition Object
-     * Each extensions needs to crete one single boolean function for that specific condition
-     * and then assign that method to the func field.
+     * Each new ScriptableObject that extends this class should implement the condition logic,
+     * with will be used in transitions between states
      */
     public abstract class Condition : ScriptableObject {
-        public Func<bool> IsTrue { get; }
+        public abstract bool IsTrue();
     }
 }

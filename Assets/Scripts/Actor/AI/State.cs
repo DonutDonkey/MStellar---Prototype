@@ -3,8 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace Actor.AI {
-    public class State : MonoBehaviour, IState
-    {
+    public class State : MonoBehaviour, IState {
         [SerializeField] private List<Transition> transitions = new List<Transition>();
 
         public IState ProcessTransitions() => 

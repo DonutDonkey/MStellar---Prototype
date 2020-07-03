@@ -1,7 +1,6 @@
 ﻿namespace Actor.AI {
-    public class FiniteStateMachine
-    {
-        public IState CurrentState { get; private set; }
+    public class FiniteStateMachine {
+        private IState CurrentState { get; set; }
 
         public void ChangeState(IState state) {
             CurrentState?.Exit();
