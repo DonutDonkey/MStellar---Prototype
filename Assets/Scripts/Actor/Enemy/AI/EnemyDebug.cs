@@ -1,8 +1,6 @@
 ﻿using System;
 using Data.Values;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Actor.Enemy.AI {
@@ -10,13 +8,12 @@ namespace Actor.Enemy.AI {
         [SerializeField] private FloatValue hearingRadius;
         
         [SerializeField] private Text text;
+        public Color HearingColor { get; set; } = Color.gray;
+
+        public Text DebugText { get => text; set => text = value; }
         
-        [SerializeField] private StringValue stateText;
-
-        public StringValue StateText { get => stateText; set => stateText = value; }
-
         private void OnDrawGizmosSelected() {
-            Gizmos.color = Color.yellow;
+            Gizmos.color = HearingColor;
             
             //Hearing zone
             Gizmos.DrawWireSphere(transform.parent.position, hearingRadius);

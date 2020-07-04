@@ -1,8 +1,13 @@
 ﻿namespace Actor.AI {
     public class FiniteStateMachine {
+        public FiniteStateMachine(IState currentState) {
+            CurrentState = currentState;
+            ChangeState(CurrentState);
+        }
+
         private IState CurrentState { get; set; }
 
-        public void ChangeState(IState state) {
+        private void ChangeState(IState state) {
             CurrentState?.Exit();
             CurrentState = state;
             CurrentState?.Enter();

@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 
-/**
- * Mockup State Machine Singleton Controller 
- */
 namespace Actor.AI {
     public class StateMachineController : MonoBehaviour {
-        public FiniteStateMachine StateMachine { get; }
+        [SerializeField] private State startingState;
 
-        private void FixedUpdate() => StateMachine.Tick();
+        private FiniteStateMachine _stateMachine;
 
-        public void ChangeState(State state) => StateMachine.ChangeState(state);
+        private void FixedUpdate() => _stateMachine.Tick();
+
+        protected virtual void Awake() => _stateMachine = new FiniteStateMachine(startingState);
     }
 }
