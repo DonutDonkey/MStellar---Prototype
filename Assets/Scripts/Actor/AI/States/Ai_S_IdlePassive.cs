@@ -11,6 +11,9 @@ namespace Actor.AI.States {
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.green;
             DebugInfo.HearingColor = Color.green;
+            
+            var anim = GetComponentInParent<Animator>();
+            anim.SetBool("Aggro", false);
         }
 
         public override void Tick() {
