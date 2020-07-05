@@ -61,9 +61,8 @@ namespace Actor.Enemy.AI {
             }
         }
 
-        private Vector3 GetStartAngle(float startAngle) {
-            return Quaternion.AngleAxis(startAngle, Vector3.up) * debugTransform.forward;
-        }
+        private Vector3 GetStartAngle(float startAngle) => 
+            Quaternion.AngleAxis(startAngle, Vector3.up) * debugTransform.forward;
 
         private float GetRadiusDistance(float startAngle) {
             Physics.Raycast(
