@@ -25,7 +25,7 @@ namespace Actor.AI.Conditions {
         private float Angle() => Vector3.Angle(otherTransform.position - thisTransform.position, thisTransform.forward);
         
         private bool CheckIfMadeNoise() => 
-            (playerInputHandler.IsJumping() || playerInputHandler.GetAttackButton()) 
+            (playerInputHandler.IsJumping() || playerInputHandler.GetAttackButton() || !playerInputHandler.IsGrounded()) 
                 ? true 
                 : false;
     }

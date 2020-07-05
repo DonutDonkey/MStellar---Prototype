@@ -21,10 +21,16 @@ namespace Actor.AI.States {
 
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
             var anim = GetComponentInParent<Animator>();
-            anim.SetBool("Aggro", false);
         }
 
-        public override void Tick() => _navMeshAgent.SetDestination(_originalPosition);
+        public override void Tick() {
+            _navMeshAgent.SetDestination(_originalPosition);
+            
+            if( Vector3.Distance(transform.position, _originalPosition) > 1f ) return;
+            
+            var anim = GetComponentInParent<Animator>();
+            anim.SetBool("Aggro", false);
+        }
 
         public override void Exit() {
             // throw new System.NotImplementedException();

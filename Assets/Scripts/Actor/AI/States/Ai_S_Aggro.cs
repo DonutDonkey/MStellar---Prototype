@@ -21,8 +21,6 @@ namespace Actor.AI.States {
 
         public override void Tick() => _navMeshAgent.SetDestination(GameObject.Find("Player").transform.position);
 
-        public override void Exit() {
-            // throw new System.NotImplementedException();
-        }
+        public override void Exit() { }
     }
 }
