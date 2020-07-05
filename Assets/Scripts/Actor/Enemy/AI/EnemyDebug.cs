@@ -1,11 +1,11 @@
-﻿using System;
-using Data.Values;
+﻿using Data.Values;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Actor.Enemy.AI {
     public class EnemyDebug : MonoBehaviour {
+        [SerializeField] private FloatValue incentivesRadius;
         [SerializeField] private FloatValue hearingRadius;
         [SerializeField] private FloatValue fieldOfView;
 
@@ -22,8 +22,12 @@ namespace Actor.Enemy.AI {
         private void OnDrawGizmosSelected() {
             Gizmos.color = HearingColor;
             
-            //Hearing zone
-            Gizmos.DrawWireSphere(transform.parent.position, hearingRadius);
+            //Incentives zone
+            Gizmos.DrawWireSphere(transform.parent.position, incentivesRadius);
+            
+            //Hearing Zone
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.parent.position, hearingRadius );
             
             //Fov
             DebugDrawFov();
@@ -66,8 +70,8 @@ namespace Actor.Enemy.AI {
                 out var hit, //hit point
                 layerMask); // obstacles
             
-                return ( Vector3.Distance(debugTransform.position, hit.point) > hearingRadius) 
-                    ? hearingRadius 
+                return ( Vector3.Distance(debugTransform.position, hit.point) > incentivesRadius) 
+                    ? incentivesRadius 
                     : Vector3.Distance(debugTransform.position, hit.point);
         }
         

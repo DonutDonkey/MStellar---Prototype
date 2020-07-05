@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Actor.AI.Conditions {
     public class Ai_C_IsNotSeenOrHeard : Condition {
-        [SerializeField] private FloatValue fieldOfView;
         [SerializeField] private FloatValue viewRadius;
 
         [SerializeField] private Transform thisTransform;
