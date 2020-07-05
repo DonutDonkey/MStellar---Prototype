@@ -1,5 +1,4 @@
-﻿using System;
-using Actor.Enemy.AI;
+﻿using Actor.Enemy.AI;
 using UnityEngine;
 using UnityEngine.AI;
 

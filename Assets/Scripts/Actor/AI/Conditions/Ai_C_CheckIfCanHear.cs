@@ -1,7 +1,6 @@
 ﻿using Actor.Player;
 using Data.Values;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Actor.AI.Conditions {
     public class Ai_C_CheckIfCanHear : Condition {
