@@ -7,6 +7,7 @@ namespace Actor.Enemy.AI {
     public class EnemyDebug : MonoBehaviour {
         [SerializeField] private FloatValue incentivesRadius;
         [SerializeField] private FloatValue hearingRadius;
+        [SerializeField] private FloatValue viewRadius;
         [SerializeField] private FloatValue fieldOfView;
 
         [SerializeField] private Text text;
@@ -24,6 +25,7 @@ namespace Actor.Enemy.AI {
             
             //Incentives zone
             Gizmos.DrawWireSphere(transform.parent.position, incentivesRadius);
+            
             
             //Hearing Zone
             Gizmos.color = Color.blue;
@@ -70,8 +72,8 @@ namespace Actor.Enemy.AI {
                 out var hit, //hit point
                 layerMask); // obstacles
             
-                return ( Vector3.Distance(debugTransform.position, hit.point) > incentivesRadius) 
-                    ? incentivesRadius 
+                return ( Vector3.Distance(debugTransform.position, hit.point) > viewRadius) 
+                    ? viewRadius
                     : Vector3.Distance(debugTransform.position, hit.point);
         }
         
