@@ -40,7 +40,7 @@ namespace Actor.Enemy.AI {
             
             for (var i = 0; i <= arcSteps; i++) {
                 
-                var angle = fieldOfView.value - (i * 10);
+                var angle = fieldOfView.value - (i * steps);
                 Handles.DrawSolidArc(debugTransform.position,
                     debugTransform.up,
                     GetStartAngle(angle * 0.5f), // rotate from forward by step
@@ -50,7 +50,7 @@ namespace Actor.Enemy.AI {
                 Handles.DrawSolidArc(debugTransform.position,
                     debugTransform.up,
                     GetStartAngle(-angle * 0.5f), // rotate from forward by step
-                    arcSteps,
+                    -arcSteps,
                     GetRadiusDistance(-angle * 0.5f));
             }
         }
