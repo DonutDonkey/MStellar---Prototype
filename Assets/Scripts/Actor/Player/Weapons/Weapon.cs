@@ -17,8 +17,8 @@ namespace Actor.Player.Weapons {
         [SerializeField] private Transform projectileTransform;
 
         private GameObject _projectile;
-        
-        public void Attack() {
+
+        public virtual void Attack() {
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(weaponData.ProjectileObjectTag);
 
             if ( _projectile == null || weaponData.Ammunition <= 0) 

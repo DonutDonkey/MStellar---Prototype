@@ -1,4 +1,6 @@
-﻿using Actor.Enemy.AI;
+﻿using Actor.Enemy;
+using Actor.Enemy.AI;
+using Objects;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,7 +8,23 @@ namespace Actor.AI.States {
     public class Ai_S_Aggro : State {
         [SerializeField] private EnemyDebug debugInfo;
 
+        [SerializeField] private Transform projectileTransform;
+
+        [SerializeField] private string projectileTag;
+        
         private NavMeshAgent _navMeshAgent;
+        
+        private GameObject _projectile;
+
+        private float _cooldownTimer = 0f;
+        private float Cooldown { get; set; }
+        
+        private readonly int _aggro = Animator.StringToHash("Aggro");
+
+        private void Awake() => Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
+            ? enemyData.EnemyCooldown.value
+            : 0;
+
         public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
 
         public override void Enter() {
@@ -16,10 +34,34 @@ namespace Actor.AI.States {
 
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
             var anim = GetComponentInParent<Animator>();
-            anim.SetBool("Aggro", true);
+            anim.SetBool(_aggro, true);
         }
 
-        public override void Tick() => _navMeshAgent.SetDestination(GameObject.Find("Player").transform.position);
+        public override void Tick() {
+            _navMeshAgent.SetDestination(GameObject.Find("Player").transform.position);
+            
+            if(_cooldownTimer <= 0)
+                Attack();
+
+            _cooldownTimer -= Time.deltaTime;
+        }
+
+        private void Attack() {
+            _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+
+            if ( _projectile == null ) 
+                return;
+            
+            _projectile.transform.position = projectileTransform.position;
+            _projectile.transform.LookAt(GameObject.Find("Player").transform.position);
+            
+            _projectile.GetComponent<Projectile>()
+                .ProjectilePointTransform.LookAt(GameObject.Find("Player").transform.position);
+            
+            _projectile.SetActive(true);
+
+            _cooldownTimer = Cooldown;
+        }
 
         public override void Exit() { }
     }

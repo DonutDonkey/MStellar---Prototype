@@ -12,18 +12,22 @@ namespace Objects {
         [SerializeField] private FloatValue damage;
         [SerializeField] private FloatValue speed;
 
+        [SerializeField] private string ignoreObjectCollisionName;
         [SerializeField] private string particleName;
 
         private Rigidbody _rigidbody;
 
+        public Transform ProjectilePointTransform
+        { get => projectilePointTransform; set => projectilePointTransform = value; }
+
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
-        private void OnEnable() => _rigidbody.velocity = projectilePointTransform.forward * speed;
+        private void OnEnable() => _rigidbody.velocity = ProjectilePointTransform.forward * speed;
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log(other.gameObject.name);
             
-            if (other.gameObject.name.Equals("Player")) 
+            if (other.gameObject.name.Equals(ignoreObjectCollisionName)) 
                 return;
             
             SpawnImpactParticles(out var particleObj);
@@ -44,8 +48,8 @@ namespace Objects {
 
         private void DamageActorsIfHit(Component inCollider) {
             var actor = inCollider.transform.GetComponent<ActorData>();
-            
-            if(actor == null)
+            //second condition only for debug until i unfuck projectiles
+            if(actor == null || inCollider.gameObject.name.Equals(ignoreObjectCollisionName))
                 return;
             
             actor.TakeDamage(GetFallowDamage(inCollider.transform));

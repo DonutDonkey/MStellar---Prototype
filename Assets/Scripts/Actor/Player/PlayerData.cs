@@ -1,7 +1,5 @@
-﻿using System;
-using Data.Values;
+﻿using Data.Values;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Actor.Player {
     public class PlayerData : ActorData {

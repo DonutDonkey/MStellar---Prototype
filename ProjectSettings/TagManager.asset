@@ -7,6 +7,8 @@ TagManager:
   - Pickup
   - Projectile 01
   - Explosion Particle
+  - Enemy Explosion
+  - Projectile EN 01
   layers:
   - Default
   - TransparentFX

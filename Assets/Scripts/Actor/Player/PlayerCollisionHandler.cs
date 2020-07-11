@@ -1,5 +1,4 @@
-﻿using System;
-using Data.Values;
+﻿using Data.Values;
 using UnityEngine;
 
 namespace Actor.Player {
