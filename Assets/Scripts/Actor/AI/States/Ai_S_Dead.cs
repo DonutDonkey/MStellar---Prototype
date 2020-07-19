@@ -24,6 +24,8 @@ namespace Actor.AI.States {
             
             GetComponentInParent<Animator>().SetBool(Aggro, false);
             GetComponentInParent<Animator>().SetBool(IsDead, true);
+
+            GetComponentInParent<CapsuleCollider>().enabled = false;
         }
 
         public override void Tick() { }
