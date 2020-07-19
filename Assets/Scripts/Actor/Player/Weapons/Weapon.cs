@@ -1,8 +1,6 @@
 ﻿using Data.GameObjectsData;
 using Data.Values;
 using UnityEngine;
-using System;
-using Data;
 
 namespace Actor.Player.Weapons {
     public class Weapon : MonoBehaviour {
@@ -19,6 +17,8 @@ namespace Actor.Player.Weapons {
         private GameObject _projectile;
 
         public virtual void Attack() {
+            GetComponent<Animator>().Play("Attack");
+            
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(weaponData.ProjectileObjectTag);
 
             if ( _projectile == null || weaponData.Ammunition <= 0) 

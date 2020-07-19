@@ -1,7 +1,9 @@
-﻿namespace Actor.Player.Weapons {
+﻿using UnityEngine;
+
+namespace Actor.Player.Weapons {
     public class MeleeWeapon : Weapon {
         public override void Attack() {
-            
+            GetComponent<Animator>().Play("Attack");
         }
     }
 }

@@ -47,6 +47,9 @@ namespace Actor.AI.States {
         }
 
         private void Attack() {
+            gameObject.transform.LookAt(GameObject.Find("Player").transform);
+            GetComponentInParent<Animator>().Play("Attack");
+            
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
 
             if ( _projectile == null ) 
