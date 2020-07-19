@@ -14,12 +14,13 @@ namespace Actor {
         protected FloatValue Health { get => health; set => health = value; }
         protected FloatValue MaxHealth => maxHealth;
 
-        protected bool IsDead() => Health <= 0f;
+        protected internal bool IsDead() => Health <= 0f;
 
         protected virtual void Awake() => _actorPosition = GetComponent<Transform>();
 
         public virtual void TakeDamage(float value) {
-            Health -= value;
+            if( !IsDead() )
+                Health -= value;
         }
     }
 }

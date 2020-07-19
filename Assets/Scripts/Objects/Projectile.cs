@@ -2,6 +2,7 @@
 using Actor;
 using Data.Values;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 namespace Objects {
@@ -17,12 +18,22 @@ namespace Objects {
 
         private Rigidbody _rigidbody;
 
+        private Vector3 _startingPosition;
+
         public Transform ProjectilePointTransform
         { get => projectilePointTransform; set => projectilePointTransform = value; }
 
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
-        private void OnEnable() => _rigidbody.velocity = ProjectilePointTransform.forward * speed;
+        private void OnEnable() {
+            _rigidbody.velocity = ProjectilePointTransform.forward * speed;
+            _startingPosition = transform.position;
+        }
+
+        private void Update() {
+            if( Vector3.Distance(transform.position, _startingPosition) > 100f)
+                gameObject.SetActive(false);
+        }
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log(other.gameObject.name);
