@@ -26,6 +26,8 @@ namespace Actor.AI.States {
             GetComponentInParent<Animator>().SetBool(IsDead, true);
 
             GetComponentInParent<CapsuleCollider>().enabled = false;
+
+            S_GameManager_LocalObserver.Instance.EnemyCountAlive--;
         }
 
         public override void Tick() { }
