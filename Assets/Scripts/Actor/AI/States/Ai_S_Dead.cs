@@ -27,7 +27,7 @@ namespace Actor.AI.States {
 
             GetComponentInParent<CapsuleCollider>().enabled = false;
 
-            S_GameManager_LocalObserver.Instance.EnemyCountAlive--;
+            S_GameManager_LocalObserver.Instance.EnemyCountAlive++;
         }
 
         public override void Tick() { }

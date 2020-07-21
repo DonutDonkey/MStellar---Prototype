@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class S_GameManager_LocalObserver : MonoBehaviour {
     private int _enemyCountTotal;
-    private int _enemyCountAlive;
+    private int _enemyCountAlive = 0;
     
     public static S_GameManager_LocalObserver Instance { get; private set; }
 
@@ -18,6 +18,5 @@ public class S_GameManager_LocalObserver : MonoBehaviour {
 
     public void SetObserverItems() {
         EnemyCountTotal = FindObjectsOfType<EnemyData>().Length;
-        EnemyCountAlive = EnemyCountTotal;
     }
 }

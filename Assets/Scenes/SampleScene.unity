@@ -5674,10 +5674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e2e74609244239b0645b2d5bac9a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitions:
-  - nextState: {fileID: 593013867}
-    conditions:
-    - {fileID: 1451427955}
+  transitions: []
   debugInfo: {fileID: 1299846362}
 --- !u!1 &597067077
 GameObject:
@@ -8842,10 +8839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e2e74609244239b0645b2d5bac9a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitions:
-  - nextState: {fileID: 1067293094}
-    conditions:
-    - {fileID: 534780488}
+  transitions: []
   debugInfo: {fileID: 599402874}
 --- !u!43 &1078717940
 Mesh:
@@ -13956,10 +13950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e2e74609244239b0645b2d5bac9a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitions:
-  - nextState: {fileID: 1976187366}
-    conditions:
-    - {fileID: 1952755643}
+  transitions: []
   debugInfo: {fileID: 1576845656}
 --- !u!1 &1977101469
 GameObject:

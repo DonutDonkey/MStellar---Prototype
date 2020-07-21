@@ -13,7 +13,7 @@ namespace GUI {
         [SerializeField] private Text currentHpText;
         [SerializeField] private Text currentArmorText;
 
-        private void Awake() {
+        private void Start() {
             currentHpText.text = currentHp.value.ToString(CultureInfo.InvariantCulture);
             currentArmorText.text = currentArmor.value.ToString(CultureInfo.InvariantCulture);
         }
