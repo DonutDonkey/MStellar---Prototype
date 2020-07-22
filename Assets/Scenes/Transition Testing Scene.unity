@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -14078,7 +14078,7 @@ MonoBehaviour:
   playerWeaponsList: []
   setPlayerHealthTo: 100
   setPlayerArmorTo: 0
-  sceneShouldLoadPlayerData: 1
+  sceneShouldLoadPlayerData: 0
 --- !u!114 &9948775100573600
 MonoBehaviour:
   m_ObjectHideFlags: 0

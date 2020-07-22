@@ -28,12 +28,18 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     private void Awake() {
         ShouldInitializeFreshData = sceneShouldLoadPlayerData;
 
-        if (!ShouldInitializeFreshData) return;
-        
-        PlayerCurrentHealth = setPlayerHealthTo;
-        PlayerCurrentArmor = setPlayerArmorTo;
+        SetPlayerCurrentHealth();
+        SetPlayerCurrentArmor();
     }
-    
+
+    private void SetPlayerCurrentHealth() => PlayerCurrentHealth = (ShouldInitializeFreshData) 
+        ? setPlayerHealthTo 
+        : playerHealth.value;
+
+    private void SetPlayerCurrentArmor() => PlayerCurrentArmor = (ShouldInitializeFreshData) 
+        ? setPlayerArmorTo 
+        : playerArmor.value;
+
 
     private void OnEnable() {
         playerHealth.value = PlayerCurrentHealth;
