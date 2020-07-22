@@ -58,7 +58,7 @@ namespace Actor.AI.States {
             GetComponentInParent<Animator>().Play("Attack");
             _navMeshAgent.velocity = _navMeshAgent.velocity / 2;
             
-            StartCoroutine(DoAfter(0.5f));
+            StartCoroutine(DoAfter(0.4f));
             
             _cooldownTimer = Cooldown;
         }

@@ -10808,6 +10808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_PROJECTILE_WEP_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2709387003824795010, guid: 446ea8e306e3f9c4d90933691e586cbd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2709387003824795035, guid: 446ea8e306e3f9c4d90933691e586cbd,
         type: 3}
       propertyPath: projectilePointTransform
