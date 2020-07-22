@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using Actor.Enemy;
+﻿using Actor.Enemy;
 using Actor.Enemy.AI;
-using Objects;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +10,8 @@ namespace Actor.AI.States {
         [SerializeField] private Transform projectileTransform;
 
         [SerializeField] private string projectileTag;
+        
+        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
         
         private NavMeshAgent _navMeshAgent;
         
@@ -27,8 +27,6 @@ namespace Actor.AI.States {
         private void Awake() => Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
             ? enemyData.EnemyCooldown.value
             : 0;
-
-        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
 
         public override void Enter() {
             DebugInfo.DebugText.text = GetType().ToString();

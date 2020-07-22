@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be60588224c40f6b745cd9c205c6d00, type: 3}
-  m_Name: FV_WEP02_Cooldown
+  m_Name: FV_EN01_DMG
   m_EditorClassIdentifier: 
-  value: 1
+  value: 20

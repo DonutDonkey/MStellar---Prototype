@@ -10473,6 +10473,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_ACT_ENEMY_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1428645031528096957, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: enemyCooldown
+      value: 
+      objectReference: {fileID: 11400000, guid: d72b41334d4084b47b1cd0ebf658896f,
+        type: 2}
     - target: {fileID: 1772238723256925702, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10560,14 +10566,35 @@ PrefabInstance:
       objectReference: {fileID: 1181226784}
     - target: {fileID: 2239125501627701773, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239125501627701773, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239125501627701773, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
       propertyPath: m_Speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239125501627701773, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2239125502303062589, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: otherTransform
       value: 
       objectReference: {fileID: 1181226784}
+    - target: {fileID: 8887434049868447780, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: enemyDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: 2082dca770f8e744792a78b8a2494217,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6259130879a4143b9465c62bf31084, type: 3}
 --- !u!1001 &1941966735853765998
