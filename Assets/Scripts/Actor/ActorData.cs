@@ -11,8 +11,8 @@ namespace Actor {
         private     Transform _actorPosition;
         protected   Transform ActorPosition { get; set; }
         
-        protected FloatValue Health { get => health; set => health = value; }
-        protected FloatValue MaxHealth => maxHealth;
+        public FloatValue Health { get => health; protected set => health = value; }
+        public FloatValue MaxHealth => maxHealth;
 
         protected internal bool IsDead() => Health <= 0f;
 
