@@ -4,9 +4,11 @@ using UnityEngine;
 namespace Actor.Player.Weapons {
     public class HitScanWeapon : Weapon {
         [SerializeField] private FloatValue distance;
+        [SerializeField] private FloatValue damage;
 
         [SerializeField] private UnityEngine.Camera cam;
-        
+
+        private GameObject _particle;
 
         public override void Attack() {
             GetComponent<Animator>().Play("Attack");
@@ -14,7 +16,14 @@ namespace Actor.Player.Weapons {
             var ray = GetRayFromCamera();
 
             if (Physics.Raycast(ray, out var hit, distance.value)) {
-                Debug.Log(this.GetType() + " ATTACK() - HIT " + hit.transform.name);
+                if (hit.transform.gameObject.GetComponent<ActorData>() != null) {
+                    hit.transform.gameObject.GetComponent<ActorData>().TakeDamage(damage);
+                    hit.transform.gameObject.GetComponent<Animator>().Play("Hurt");
+
+                    _particle = ObjectPooler.SharedInstance.GetPooledObject("Particle Blood");
+                    _particle.transform.position = hit.transform.position;
+                    _particle.SetActive(true);
+                }
             }
             
             ResetWeaponCooldown();

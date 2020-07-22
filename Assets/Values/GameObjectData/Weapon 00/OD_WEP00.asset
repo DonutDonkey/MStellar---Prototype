@@ -15,5 +15,5 @@ MonoBehaviour:
   maxAmmunition: {fileID: 0}
   ammunition: {fileID: 0}
   cooldown: {fileID: 11400000, guid: 1914f6a8d5a02e94ebe1dbe99f01eb4f, type: 2}
-  isInEq: {fileID: 0}
+  isInEq: {fileID: 11400000, guid: 984df4c5a35580a4397cb87a2ed3bc4e, type: 2}
   projectileObjectTag: 

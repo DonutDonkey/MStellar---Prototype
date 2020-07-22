@@ -1,6 +1,4 @@
-﻿using System;
-using Data.GameObjectsData;
-using Data.Values;
+﻿using Data.GameObjectsData;
 using UnityEngine;
 
 namespace Actor.Player.Weapons {
@@ -10,9 +8,7 @@ namespace Actor.Player.Weapons {
         [SerializeField] private GameObject weaponObject;
 
         [SerializeField] private WeaponData weaponData;
-
-        [SerializeField] private FloatValue damage;
-
+        
         [SerializeField] private Transform projectileTransform;
 
         private GameObject _projectile;

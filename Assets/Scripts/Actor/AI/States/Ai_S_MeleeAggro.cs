@@ -58,7 +58,7 @@ namespace Actor.AI.States {
             GetComponentInParent<Animator>().Play("Attack");
             _navMeshAgent.velocity = _navMeshAgent.velocity / 2;
             
-            StartCoroutine(DoAfter(0.4f));
+            StartCoroutine(DoAfter(0.5f));
             
             _cooldownTimer = Cooldown;
         }
@@ -66,7 +66,7 @@ namespace Actor.AI.States {
         private IEnumerator DoAfter(float time) {
             yield return new WaitForSeconds(time);
             
-            if( CheckForTargetInAttackDistance() )
+            if( CheckForTargetInAttackDistance()  && GetComponentInParent<Animator>())
                 Attack();
         }
         
