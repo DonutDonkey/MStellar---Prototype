@@ -9,7 +9,12 @@ namespace Actor.AI.Conditions {
         [SerializeField] private Transform otherTransform;
 
 
-        public override bool IsTrue() => 
-            Vector3.Distance(thisTransform.position, otherTransform.position) < radius;
+        public override bool IsTrue() => (CheckDistance() && !IsTargetDead()) ? true : false;
+
+        private bool CheckDistance() {
+            return Vector3.Distance(thisTransform.position, otherTransform.position) < radius;
+        }
+
+        private bool IsTargetDead() => otherTransform.gameObject.GetComponent<ActorData>().IsDead();
     }
 }

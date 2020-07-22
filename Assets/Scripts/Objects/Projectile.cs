@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Actor;
 using Data.Values;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Objects {
         [SerializeField] private FloatValue damage;
         [SerializeField] private FloatValue speed;
 
-        [SerializeField] private string ignoreObjectCollisionName;
+        [SerializeField] private string [] ignoreObjectCollisionName;
         [SerializeField] private string particleName;
 
         private Rigidbody _rigidbody;
@@ -37,10 +38,10 @@ namespace Objects {
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log(other.gameObject.name);
-            
-            if (other.gameObject.name.Equals(ignoreObjectCollisionName)) 
-                return;
-            
+
+            // if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName))
+            //     return;
+
             SpawnImpactParticles(out var particleObj);
             particleObj.SetActive(true);
 
@@ -59,10 +60,12 @@ namespace Objects {
 
         private void DamageActorsIfHit(Component inCollider) {
             var actor = inCollider.transform.GetComponent<ActorData>();
-            //second condition only for debug until i unfuck projectiles
-            if(actor == null || inCollider.gameObject.name.Equals(ignoreObjectCollisionName))
-                return;
             
+            //second condition only for debug until i unfuck projectiles
+            if (ignoreObjectCollisionName
+                .Any(ignoreName => actor == null || inCollider.gameObject.name.Equals(ignoreName))) 
+                return;
+
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
             
             Debug.Log("Projectile.DamageActorsIfHit Distance : " + GetDistance(inCollider.transform));
