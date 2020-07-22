@@ -26,7 +26,7 @@ namespace Objects {
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
         private void OnEnable() {
-            _rigidbody.velocity = ProjectilePointTransform.forward * speed;
+            _rigidbody.velocity = transform.forward * speed;
             _startingPosition = transform.position;
         }
 

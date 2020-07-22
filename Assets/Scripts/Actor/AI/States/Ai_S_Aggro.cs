@@ -1,4 +1,5 @@
-﻿using Actor.Enemy;
+﻿using System.Collections;
+using Actor.Enemy;
 using Actor.Enemy.AI;
 using Objects;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Actor.AI.States {
         private float Cooldown { get; set; }
         
         private readonly int _aggro = Animator.StringToHash("Aggro");
+
+        private bool attackAnim;
 
         private void Awake() => Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
             ? enemyData.EnemyCooldown.value
@@ -47,20 +50,20 @@ namespace Actor.AI.States {
         }
 
         private void Attack() {
-            gameObject.transform.LookAt(GameObject.Find("Player").transform);
             GetComponentInParent<Animator>().Play("Attack");
-            
+
+            GetComponentInParent<Transform>().LookAt(GameObject.Find("Player").transform.position);
+
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
 
             if ( _projectile == null ) 
                 return;
+
+            projectileTransform.LookAt(GameObject.Find("Player").transform.position);
             
             _projectile.transform.position = projectileTransform.position;
-            _projectile.transform.LookAt(GameObject.Find("Player").transform.position);
-            
-            _projectile.GetComponent<Projectile>()
-                .ProjectilePointTransform.LookAt(GameObject.Find("Player").transform.position);
-            
+            _projectile.transform.rotation = projectileTransform.rotation;
+
             _projectile.SetActive(true);
 
             _cooldownTimer = Cooldown;
