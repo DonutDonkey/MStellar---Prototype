@@ -9,6 +9,9 @@ namespace Actor.AI.States {
         private NavMeshAgent _navMeshAgent;
 
         private Vector3 _originalPosition;
+        
+        private static readonly int Aggro = Animator.StringToHash("Aggro");
+        
         public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
 
         private void Awake() => _originalPosition = GetComponentInParent<Transform>().position;
@@ -28,11 +31,9 @@ namespace Actor.AI.States {
             if( Vector3.Distance(transform.position, _originalPosition) > 1f ) return;
             
             var anim = GetComponentInParent<Animator>();
-            anim.SetBool("Aggro", false);
+            anim.SetBool(Aggro, false);
         }
 
-        public override void Exit() {
-            // throw new System.NotImplementedException();
-        }
+        public override void Exit() { }
     }
 }

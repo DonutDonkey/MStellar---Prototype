@@ -19,6 +19,7 @@ namespace Actor {
         protected virtual void Awake() => _actorPosition = GetComponent<Transform>();
 
         public virtual void TakeDamage(float value) {
+            Debug.Log("ActorData.TakeDamage");
             if( !IsDead() )
                 Health -= value;
         }

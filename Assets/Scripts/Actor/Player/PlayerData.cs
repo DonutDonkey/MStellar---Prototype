@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Actor.Player.Camera;
 using Data.Values;
 using GUI;
@@ -17,14 +16,13 @@ namespace Actor.Player {
         public FloatValue Armor { get => armor; set => armor = value; }
 
         public override void TakeDamage(float value) {
-            Debug.Log("PlayerData.TakeDamage - START");
-            
+            Debug.Log("PlayerData.GetDamage ");
             if (Armor > 0) {
-                Debug.Log("PlayerData.TakeDamage - SEES ARMOR SHIT");
-                Health -= (float)Math.Round(value / Armor);
-                Armor -= (float)Math.Round(value);
+                // Debug.Log("PlayerData.TakeDamage - SEES ARMOR SHIT");
+                Health.value -= (float)Math.Round(value / Armor);
+                Armor.value -= (float)Math.Round(value);
             } else {
-                Health -= value;
+                Health.value -= (float)Math.Round(value);
             }
 
             ConvertToTotal();

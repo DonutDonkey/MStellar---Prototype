@@ -4790,6 +4790,7 @@ MonoBehaviour:
   ignoreObjectCollisionName:
   - Player
   - MS_PROJECTILE_ENEMY(Clone)
+  - Camera-Point
   particleName: Explosion Particle
 --- !u!199 &2709387003824795036
 ParticleSystemRenderer:

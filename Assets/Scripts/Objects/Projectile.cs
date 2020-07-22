@@ -37,19 +37,19 @@ namespace Objects {
         }
 
         private void OnCollisionEnter(Collision other) {
-            Debug.Log(other.gameObject.name);
+            Debug.Log("Projectile.OnCollisionEnter " + other.gameObject.name);
 
-            // if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName))
-            //     return;
+            if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName))
+                 return;
 
             SpawnImpactParticles(out var particleObj);
             particleObj.SetActive(true);
 
             var hit = Physics.OverlapSphere(transform.position, damageRadius);
-            
-            foreach (var variable in hit) 
+
+            foreach (var variable in hit)
                 DamageActorsIfHit(variable);
-            
+
             gameObject.SetActive(false);
         }
 
@@ -60,20 +60,17 @@ namespace Objects {
 
         private void DamageActorsIfHit(Component inCollider) {
             var actor = inCollider.transform.GetComponent<ActorData>();
-            
+
             //second condition only for debug until i unfuck projectiles
             if (ignoreObjectCollisionName
                 .Any(ignoreName => actor == null || inCollider.gameObject.name.Equals(ignoreName))) 
                 return;
 
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
-            
-            Debug.Log("Projectile.DamageActorsIfHit Distance : " + GetDistance(inCollider.transform));
         }
 
-        private float GetFallowDamage(Transform other) {
-            return (float) Math.Round(damage.value - ((GetDistance(other) / 2) * 50));
-        }
+        private float GetFallowDamage(Transform other) => 
+            (float) Math.Round(damage.value / GetDistance(other));
 
         private float GetDistance(Transform other) => 
             (float) Math.Round(Vector3.Distance(transform.position, other.position) );

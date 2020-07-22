@@ -28,6 +28,7 @@ namespace Actor.AI.States {
                 ? enemyData.EnemyCooldown.value
                 : 0;
 
+            _navMeshAgent = GetComponent<NavMeshAgent>();
             _targetTransform = GameObject.Find("Player").GetComponent<Transform>();
             _targetData = _targetTransform.GetComponent<ActorData>();
 
@@ -50,13 +51,12 @@ namespace Actor.AI.States {
             if( _cooldownTimer <= 0 && CheckForTargetInAttackDistance() )
                 PreAttack();
             
-            Debug.Log(this.GetType() + " DISTANCE - " + Vector3.Distance(transform.position, _targetTransform.position));
-
             _cooldownTimer -= Time.deltaTime;
         }
         
         private void PreAttack() {
             GetComponentInParent<Animator>().Play("Attack");
+            _navMeshAgent.velocity = _navMeshAgent.velocity / 2;
             
             StartCoroutine(DoAfter(0.5f));
             
