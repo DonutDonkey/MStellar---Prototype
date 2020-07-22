@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e886671185424e2a9b61e465282cb9dc, type: 3}
-  m_Name: WD_WEP_02
+  m_Name: OD_WEP00
   m_EditorClassIdentifier: 
-  maxAmmunition: {fileID: 11400000, guid: b2d5aa1aea95d994fab3004cfd532042, type: 2}
-  ammunition: {fileID: 11400000, guid: c25823cc5ba113148a8ed704c432fc8c, type: 2}
-  cooldown: {fileID: 11400000, guid: 549c226ff5172da45a19c3d1fcccc1de, type: 2}
+  maxAmmunition: {fileID: 0}
+  ammunition: {fileID: 0}
+  cooldown: {fileID: 11400000, guid: 1914f6a8d5a02e94ebe1dbe99f01eb4f, type: 2}
   isInEq: {fileID: 0}
-  projectileObjectTag: Projectile 01
+  projectileObjectTag: 

@@ -16,7 +16,7 @@ namespace Data.GameObjectsData {
 
         public FloatValue MaxAmmunition => maxAmmunition;
         public FloatValue Ammunition { get => ammunition; set => ammunition = value; }
-        public FloatValue Cooldown      => cooldown;
+        public FloatValue Cooldown => cooldown;
 
         public BooleanValue IsInEq => isInEq;
 

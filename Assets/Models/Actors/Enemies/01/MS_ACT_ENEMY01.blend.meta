@@ -2,7 +2,37 @@ fileFormatVersion: 2
 guid: cf93be64aa175fb4e88e7f11b57e12b2
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: 2667949614841947897
+    second: Walk
+  - first:
+      74: 8017390324079358001
+    second: Hurt
+  - first:
+      74: 6720303635017113406
+    second: Attack
+  - first:
+      74: -4630339522487117836
+    second: Die
+  - first:
+      74: 4723146814002874508
+    second: Armature|Attack
+  - first:
+      74: 6059336001588132254
+    second: Armature|Die
+  - first:
+      74: 9149661223541978141
+    second: Armature|Hurt
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: 8349542763059015795
+    second: Armature|Walk
   externalObjects:
   - first:
       type: UnityEngine:Material

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Actor.Player.Weapons {
@@ -9,7 +10,7 @@ namespace Actor.Player.Weapons {
         
         private readonly Dictionary<int, KeyCode> _weaponsList = new Dictionary<int, KeyCode>();
 
-        private Weapon _currentActiveWeapon;
+        private Weapon _currentActiveWeapon = null;
         
         private void Awake() => _playerInputHandler = GetComponentInParent<PlayerInputHandler>();
 
@@ -32,8 +33,10 @@ namespace Actor.Player.Weapons {
         private void Update() {
             UpdateActiveWeapon();
             
-            if(_playerInputHandler.GetAttackButton())
+            if(_playerInputHandler.GetAttackButton() && _currentActiveWeapon.Cooldown <= 0f)
                 Attack();
+
+            _currentActiveWeapon.Cooldown -= (_currentActiveWeapon.Cooldown > 0) ? Time.deltaTime : 0;
         }
 
         private void UpdateActiveWeapon() {
@@ -49,7 +52,10 @@ namespace Actor.Player.Weapons {
         private bool IsInInventory() => true;
 
         private void ChangeActiveWeapon(int number) {
-            foreach (var variable in weapons) {
+            foreach (var variable in weapons
+                .Where(variable => 
+                    variable.name != _currentActiveWeapon?.GetWeaponName() 
+                    || weapons[number].name != variable.name)) {
                 variable.SetActive(false);
             }
             weapons[number].SetActive(true);

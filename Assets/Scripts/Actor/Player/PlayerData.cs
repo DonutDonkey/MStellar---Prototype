@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Actor.Player.Camera;
 using Data.Values;
 using GUI;
@@ -20,8 +21,8 @@ namespace Actor.Player {
             
             if (Armor > 0) {
                 Debug.Log("PlayerData.TakeDamage - SEES ARMOR SHIT");
-                Health -= value / Armor;
-                Armor -= value;
+                Health -= (float)Math.Round(value / Armor);
+                Armor -= (float)Math.Round(value);
             } else {
                 Health -= value;
             }

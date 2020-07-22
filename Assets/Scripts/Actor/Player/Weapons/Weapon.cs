@@ -1,4 +1,5 @@
-﻿using Data.GameObjectsData;
+﻿using System;
+using Data.GameObjectsData;
 using Data.Values;
 using UnityEngine;
 
@@ -15,6 +16,16 @@ namespace Actor.Player.Weapons {
         [SerializeField] private Transform projectileTransform;
 
         private GameObject _projectile;
+        
+        public float Cooldown { get; set; }
+        
+        public bool IsCurrentlyEquipped { get; private set; }
+
+        private void Awake() => Cooldown = 0f;
+
+        private void OnEnable() => IsCurrentlyEquipped = true;
+
+        private void OnDisable() => IsCurrentlyEquipped = false;
 
         public virtual void Attack() {
             GetComponent<Animator>().Play("Attack");
@@ -29,6 +40,12 @@ namespace Actor.Player.Weapons {
             _projectile.SetActive(true);
 
             weaponData.Ammunition -= 1;
+
+            ResetWeaponCooldown();
         }
+
+        protected float ResetWeaponCooldown() => Cooldown = weaponData.Cooldown.value;
+
+        public string GetWeaponName() => weaponObject.name;
     }
 }

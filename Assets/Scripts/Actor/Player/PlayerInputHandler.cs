@@ -23,7 +23,7 @@ namespace Actor.Player {
         
         public float GetMouseHorizontalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_HORIZONTAL) 
                                                      * mouseSensitivity * Time.deltaTime;
-
+        
         public float GetVelocity(Vector3 velocity) => (_characterController.isGrounded) 
             ? 0f 
             : velocity.y + gravity * Time.deltaTime;
