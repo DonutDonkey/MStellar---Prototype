@@ -20,6 +20,7 @@ namespace Actor {
 
         public virtual void TakeDamage(float value) {
             Debug.Log("ActorData.TakeDamage");
+            
             if( !IsDead() )
                 Health -= value;
         }

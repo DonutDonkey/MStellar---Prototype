@@ -61,9 +61,11 @@ namespace Objects {
         private void DamageActorsIfHit(Component inCollider) {
             var actor = inCollider.transform.GetComponent<ActorData>();
 
-            //second condition only for debug until i unfuck projectiles
+            if(actor == null)
+                return;
+
             if (ignoreObjectCollisionName
-                .Any(ignoreName => actor == null || inCollider.gameObject.name.Equals(ignoreName))) 
+                .Any(loopString => inCollider.gameObject.name.Equals(loopString)))
                 return;
 
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
