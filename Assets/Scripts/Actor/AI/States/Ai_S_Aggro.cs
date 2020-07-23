@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Actor.Enemy;
 using Actor.Enemy.AI;
 using UnityEngine;
@@ -61,14 +62,23 @@ namespace Actor.AI.States {
             _cooldownTimer -= Time.deltaTime;
         }
 
+        private Vector3 debugPos;
+        private Vector3 debugOff;
         private void CalculateMovement() {
             if ( _movePoints <= 0) {
+                debugPos = _targetTransform.position;
+                debugOff = _targetPositionOffset;
                 _navMeshAgent.SetDestination(_targetTransform.position + _targetPositionOffset);
                 _movePoints = 30;
             }
             _movePoints--;
         }
-        
+
+        private void OnDrawGizmos() {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawSphere(debugPos + debugOff, 1f);
+        }
+
         private void Attack() {
             _navMeshAgent.transform.LookAt(_targetTransform.position);
 

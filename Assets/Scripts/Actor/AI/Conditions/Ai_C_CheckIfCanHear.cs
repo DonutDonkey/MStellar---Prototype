@@ -9,7 +9,9 @@ namespace Actor.AI.Conditions {
 
         [SerializeField] private FloatValue value;
 
-        [SerializeField] private PlayerInputHandler playerInputHandler;
+        private PlayerInputHandler _playerInputHandler;
+
+        private void Awake() => _playerInputHandler = GameObject.Find("Player").GetComponent<PlayerInputHandler>();
 
         public override bool IsTrue() => (CheckDistance() && CheckIfMadeNoise()) 
             ? true 
@@ -19,7 +21,7 @@ namespace Actor.AI.Conditions {
             Vector3.Distance(actorTransform.position, targetTransform.position) <= value;
 
         private bool CheckIfMadeNoise() => 
-            (playerInputHandler.IsJumping() || playerInputHandler.GetAttackButton()) 
+            (_playerInputHandler.IsJumping() || _playerInputHandler.GetAttackButton()) 
                 ? true 
                 : false;
     }

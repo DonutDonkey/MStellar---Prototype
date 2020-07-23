@@ -4435,31 +4435,6 @@ PrefabInstance:
       propertyPath: playerInputHandler
       value: 
       objectReference: {fileID: 1181226786}
-    - target: {fileID: 1941966736087609819, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
-    - target: {fileID: 1941966736597765007, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: transitions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941966736597765007, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: transitions.Array.data[2].conditions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941966736597765007, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: transitions.Array.data[2].nextState
-      value: 
-      objectReference: {fileID: 1320110548}
-    - target: {fileID: 1941966736597765007, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: transitions.Array.data[2].conditions.Array.data[0]
-      value: 
-      objectReference: {fileID: 1471718541}
     - target: {fileID: 1941966736666792363, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: otherTransform
@@ -8897,18 +8872,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1320110548 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1941966737515595512, guid: de86598b25772d940a7847d60f2dc4ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 601831588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdeec5ee6c08c7a4a946c47bffe5f242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1389314577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: db6010511814b6e4298a355b1859da40,
@@ -8952,18 +8915,6 @@ MonoBehaviour:
   distance: {fileID: 11400000, guid: 94dbcad6c979eac478155b30743f22b9, type: 2}
   damage: {fileID: 11400000, guid: 1761f15a6f1e7df43b94cc8728030788, type: 2}
   cam: {fileID: 963194227}
---- !u!114 &1471718541 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 326450783, guid: de86598b25772d940a7847d60f2dc4ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 601831588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0fcbf0e6b740fdabba4077c5292457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1520437254
 GameObject:
   m_ObjectHideFlags: 0

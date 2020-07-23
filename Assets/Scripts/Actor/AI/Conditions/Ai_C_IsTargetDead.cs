@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Actor.AI.Conditions {
     public class Ai_C_IsTargetDead : Condition {
