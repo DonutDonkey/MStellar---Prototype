@@ -22,7 +22,6 @@ namespace Actor.AI.States {
             DebugInfo.HearingColor = Color.yellow;
 
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
-            var anim = GetComponentInParent<Animator>();
         }
 
         public override void Tick() {

@@ -1,4 +1,5 @@
-﻿using Data.Values;
+﻿using Actor.Enemy.AI;
+using Data.Values;
 using UnityEngine;
 
 namespace Actor.Enemy
@@ -10,6 +11,8 @@ namespace Actor.Enemy
 
         private FloatValue _health;
 
+        private EnemyIncentives _enemyIncentives;
+
         protected override void Awake() {
             base.Awake();
             // Alternative option?
@@ -17,6 +20,8 @@ namespace Actor.Enemy
             // _health.value = Health.value;
             _health = Instantiate(Health);
             Health = _health;
+
+            _enemyIncentives = GetComponent<EnemyIncentives>();
         }
     }
 }

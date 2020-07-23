@@ -7,15 +7,17 @@ namespace Actor.Enemy.AI {
         [SerializeField] private FloatValue hearingRadius;
 
         private EnemyDebug _enemyDebug;
-        
+
+        private Transform _targetTransform;
         public FloatValue HearingRadius => hearingRadius;
 
+        public Transform TargetTransform => _targetTransform;
+        
         protected override void Awake() {
             base.Awake();
             _enemyDebug = GetComponent<EnemyDebug>();
-        }
-
-        private void Update() {
+            
+            _targetTransform = GameObject.Find("Player").GetComponent<Transform>();
         }
     }
 }

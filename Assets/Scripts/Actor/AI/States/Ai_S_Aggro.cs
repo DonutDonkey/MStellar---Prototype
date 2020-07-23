@@ -19,8 +19,8 @@ namespace Actor.AI.States {
         private NavMeshAgent _navMeshAgent;
         
         private GameObject _projectile;
-        
-        private Transform _targetTransform;
+
+        private EnemyIncentives _enemyIncentives;
         
         private Vector3 _targetPositionOffset;
 
@@ -37,17 +37,17 @@ namespace Actor.AI.States {
             Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
                 ? enemyData.EnemyCooldown.value
                 : 0;
-
-            _targetTransform = GameObject.Find("Player").GetComponent<Transform>();
+            
             _targetPositionOffset = Vector3.zero;
+            _enemyIncentives = GetComponentInParent<EnemyIncentives>();
+            _navMeshAgent = GetComponentInParent<NavMeshAgent>();
         }
 
         public override void Enter() {
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.red;
             DebugInfo.HearingColor = Color.red;
-
-            _navMeshAgent = GetComponentInParent<NavMeshAgent>();
+            
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
         }
@@ -62,13 +62,14 @@ namespace Actor.AI.States {
             _cooldownTimer -= Time.deltaTime;
         }
 
+        //debugging only remove later
         private Vector3 debugPos;
         private Vector3 debugOff;
         private void CalculateMovement() {
             if ( _movePoints <= 0) {
-                debugPos = _targetTransform.position;
+                debugPos = _enemyIncentives.TargetTransform.position;
                 debugOff = _targetPositionOffset;
-                _navMeshAgent.SetDestination(_targetTransform.position + _targetPositionOffset);
+                _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position + _targetPositionOffset);
                 _movePoints = 30;
             }
             _movePoints--;
@@ -76,16 +77,16 @@ namespace Actor.AI.States {
 
         private void OnDrawGizmos() {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawSphere(debugPos + debugOff, 1f);
+            Gizmos.DrawSphere(debugPos + debugOff, 0.5f);
         }
 
         private void Attack() {
-            _navMeshAgent.transform.LookAt(_targetTransform.position);
+            _navMeshAgent.transform.LookAt(_enemyIncentives.TargetTransform.position);
 
             _navMeshAgent.velocity = Vector3.zero;
             _attackAnim = true;
             
-            _targetPositionOffset = new Vector3(Random.Range(-3,3), 0f, Random.Range(-3,3));
+            _targetPositionOffset = new Vector3(Random.Range(-4,4), 0f, Random.Range(-4,4));
 
             StartCoroutine(DoAfter(0.5f));
             
@@ -96,7 +97,7 @@ namespace Actor.AI.States {
             if ( _projectile == null ) 
                 return;
 
-            projectileTransform.LookAt(_targetTransform);
+            projectileTransform.LookAt(_enemyIncentives.TargetTransform);
             
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
