@@ -18,7 +18,7 @@ namespace Actor.AI.States {
         
         private EnemyIncentives _enemyIncentives;
         
-        private float _cooldownTimer = 0f;
+        private float _cooldownTimer;
         private float Cooldown { get; set; }
         
         private float _movePoints;

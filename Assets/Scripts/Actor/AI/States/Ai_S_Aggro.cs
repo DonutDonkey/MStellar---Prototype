@@ -14,6 +14,8 @@ namespace Actor.AI.States {
 
         [SerializeField] private string projectileTag;
         
+        [SerializeField] private LayerMask viewMask;
+        
         public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
         
         private NavMeshAgent _navMeshAgent;
@@ -32,6 +34,8 @@ namespace Actor.AI.States {
         private bool _attackAnim;
 
         private readonly int _aggro = Animator.StringToHash("Aggro");
+
+        private Transform _thisTransform;
         
         private void Awake() {
             Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
@@ -41,6 +45,7 @@ namespace Actor.AI.States {
             _targetPositionOffset = Vector3.zero;
             _enemyIncentives = GetComponentInParent<EnemyIncentives>();
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
+            _thisTransform = GetComponentInParent<Transform>();
         }
 
         public override void Enter() {
@@ -81,6 +86,9 @@ namespace Actor.AI.States {
         }
 
         private void Attack() {
+            if( Physics.Linecast(_thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
+                return;
+            
             _navMeshAgent.transform.LookAt(_enemyIncentives.TargetTransform.position);
 
             _navMeshAgent.velocity = Vector3.zero;

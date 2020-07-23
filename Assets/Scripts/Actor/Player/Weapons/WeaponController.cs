@@ -31,6 +31,7 @@ namespace Actor.Player.Weapons {
         private void InitializeWeaponListAssigements() {
             _weaponsList.Add(1, KeyCode.Alpha1);
             _weaponsList.Add(2, KeyCode.Alpha2);
+            _weaponsList.Add(3, KeyCode.Alpha3);
         }
 
         private void Update() {
@@ -52,6 +53,11 @@ namespace Actor.Player.Weapons {
 
             if (_playerInputHandler.GetWeaponNumber(_weaponsList[2]) && IsInInventory()) {
                 ChangeActiveWeapon(1);
+                StartCoroutine(WeaponSwitchCooldown());
+            }
+            
+            if (_playerInputHandler.GetWeaponNumber(_weaponsList[3]) && IsInInventory()) {
+                ChangeActiveWeapon(2);
                 StartCoroutine(WeaponSwitchCooldown());
             }
         }

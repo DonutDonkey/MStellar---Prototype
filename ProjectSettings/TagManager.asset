@@ -10,6 +10,7 @@ TagManager:
   - Enemy Explosion
   - Projectile EN 01
   - Particle Blood
+  - Hitscan Particle
   layers:
   - Default
   - TransparentFX
