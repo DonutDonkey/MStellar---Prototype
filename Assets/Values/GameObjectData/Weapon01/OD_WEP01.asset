@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e886671185424e2a9b61e465282cb9dc, type: 3}
   m_Name: OD_WEP01
   m_EditorClassIdentifier: 
-  maxAmmunition: {fileID: 0}
-  ammunition: {fileID: 0}
+  maxAmmunition: {fileID: 11400000, guid: 2bd5d37020200f74c90bb39375f6e0d8, type: 2}
+  ammunition: {fileID: 11400000, guid: 108db13f20ae5fc448263910fcffccd5, type: 2}
   cooldown: {fileID: 11400000, guid: 9c3818bd02c25d140992a3242c8fbadb, type: 2}
   isInEq: {fileID: 11400000, guid: 351bb26a41f6e9a4091567b08fca476b, type: 2}
   projectileObjectTag: 

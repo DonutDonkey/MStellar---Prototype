@@ -71,10 +71,9 @@ namespace Actor.Enemy.AI {
                 out var hit, //hit point
                 layerMask); // obstacles
             
-                return ( Vector3.Distance(debugTransform.position, hit.point) > viewRadius) 
-                    ? viewRadius
-                    : Vector3.Distance(debugTransform.position, hit.point);
+            return ( Vector3.Distance(debugTransform.position, hit.point) > viewRadius) 
+                ? viewRadius
+                : Vector3.Distance(debugTransform.position, hit.point);
         }
-        
     }
 }

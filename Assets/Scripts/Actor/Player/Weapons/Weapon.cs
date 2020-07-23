@@ -14,7 +14,9 @@ namespace Actor.Player.Weapons {
         private GameObject _projectile;
         
         public float Cooldown { get; set; }
-        
+
+        protected WeaponData WeaponData { get => weaponData; set => weaponData = value; }
+
         public bool IsCurrentlyEquipped { get; private set; }
 
         private void Awake() => Cooldown = 0f;

@@ -382,7 +382,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -455,7 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingState: {fileID: 1941966735732765527}
-  hearingRadius: {fileID: 11400000, guid: 148e9ae7a04286c438c84054d52a555d, type: 2}
 --- !u!1 &1941966735596594146
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,12 +499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: {fileID: 11400000, guid: a45c4ce414b030f4eba606ece04ff500, type: 2}
-  thisTransform: {fileID: 2124002512171656592}
-  otherTransform: {fileID: 0}
   viewMask:
     serializedVersion: 2
     m_Bits: 512
-  playerInputHandler: {fileID: 0}
 --- !u!1 &1941966735732765529
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +643,6 @@ MonoBehaviour:
   actorTransform: {fileID: 2124002512171656592}
   targetTransform: {fileID: 0}
   value: {fileID: 11400000, guid: 148e9ae7a04286c438c84054d52a555d, type: 2}
-  playerInputHandler: {fileID: 0}
 --- !u!1 &1941966735947990622
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,8 +901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {fileID: 11400000, guid: 3bec360d188908b4289dbace21de28cd, type: 2}
-  thisTransform: {fileID: 2124002512171656592}
-  otherTransform: {fileID: 0}
 --- !u!1 &1941966737168489221
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,8 +990,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldOfView: {fileID: 11400000, guid: a8f067aa13e0e58409aeb048bed817e6, type: 2}
   viewRadius: {fileID: 11400000, guid: a45c4ce414b030f4eba606ece04ff500, type: 2}
-  thisTransform: {fileID: 2124002512171656592}
-  otherTransform: {fileID: 0}
   viewMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1058,6 +1049,9 @@ MonoBehaviour:
   debugInfo: {fileID: 1941966737660151393}
   projectileTransform: {fileID: 1941966736457312702}
   projectileTag: Projectile EN 01
+  viewMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1941966737610541701
 GameObject:
   m_ObjectHideFlags: 0

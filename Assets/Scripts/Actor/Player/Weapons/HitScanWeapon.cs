@@ -8,10 +8,15 @@ namespace Actor.Player.Weapons {
 
         [SerializeField] private UnityEngine.Camera cam;
 
+        [SerializeField] private bool usesAmmo;
+        
         private GameObject _particleBlood;
         private GameObject _particleImpact;
 
         public override void Attack() {
+            if(usesAmmo && WeaponData.Ammunition <= 0)
+                return;
+            
             GetComponent<Animator>().Play("Attack");
 
             var ray = GetRayFromCamera();
@@ -33,6 +38,9 @@ namespace Actor.Player.Weapons {
             }
             
             ResetWeaponCooldown();
+
+            if (usesAmmo)
+                WeaponData.Ammunition -= 1;
         }
 
         private float DamageReductionPerFistance(Transform hitTransform) =>
