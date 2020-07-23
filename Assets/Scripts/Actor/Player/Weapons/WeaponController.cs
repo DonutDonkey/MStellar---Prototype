@@ -46,17 +46,17 @@ namespace Actor.Player.Weapons {
         }
         
         private void UpdateActiveWeapon() {
-            if (_playerInputHandler.GetWeaponNumber(_weaponsList[1]) && IsInInventory()) {
+            if (_playerInputHandler.GetWeaponNumber(_weaponsList[1]) && IsInInventory(0)) {
                 ChangeActiveWeapon(0);
                 StartCoroutine(WeaponSwitchCooldown());
             }
 
-            if (_playerInputHandler.GetWeaponNumber(_weaponsList[2]) && IsInInventory()) {
+            if (_playerInputHandler.GetWeaponNumber(_weaponsList[2]) && IsInInventory(1)) {
                 ChangeActiveWeapon(1);
                 StartCoroutine(WeaponSwitchCooldown());
             }
             
-            if (_playerInputHandler.GetWeaponNumber(_weaponsList[3]) && IsInInventory()) {
+            if (_playerInputHandler.GetWeaponNumber(_weaponsList[3]) && IsInInventory(2)) {
                 ChangeActiveWeapon(2);
                 StartCoroutine(WeaponSwitchCooldown());
             }
@@ -70,7 +70,7 @@ namespace Actor.Player.Weapons {
         }
 
         //TODO: Inventory logic
-        private bool IsInInventory() => true;
+        private bool IsInInventory(int weaponNumber) => weapons[weaponNumber].GetComponent<Weapon>().WeaponData.IsInEq;
 
         private void ChangeActiveWeapon(int number) {
             foreach (var variable in weapons

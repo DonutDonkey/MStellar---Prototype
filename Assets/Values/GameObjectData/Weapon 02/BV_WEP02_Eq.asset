@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1686a7c8aac4e62897e0f34100eb8c6, type: 3}
-  m_Name: BV_WEP01_EQ
+  m_Name: BV_WEP02_Eq
   m_EditorClassIdentifier: 
   value: 0

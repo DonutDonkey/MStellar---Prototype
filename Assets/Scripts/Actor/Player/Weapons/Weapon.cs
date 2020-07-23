@@ -15,7 +15,7 @@ namespace Actor.Player.Weapons {
         
         public float Cooldown { get; set; }
 
-        protected WeaponData WeaponData { get => weaponData; set => weaponData = value; }
+        public WeaponData WeaponData { get => weaponData; protected set => weaponData = value; }
 
         public bool IsCurrentlyEquipped { get; private set; }
 

@@ -13,25 +13,34 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
 
     [SerializeField] private List<WeaponData> playerWeaponsList;
 
-    [Header("Values")] 
+    [SerializeField] private BooleanValue playerWep01IsInEq;
+    [SerializeField] private BooleanValue playerWep02IsInEq;
+
+    [Header("Setting Values")] 
     
     [SerializeField] private float setPlayerHealthTo;
     [SerializeField] private float setPlayerArmorTo;
     
     [SerializeField] private bool sceneShouldLoadPlayerData;
+    [SerializeField] private bool setWep01IsInEqTo;
+    [SerializeField] private bool setWep02IsInEqTo;
 
     public static float PlayerCurrentHealth;
     public static float PlayerCurrentArmor;
     
     public static bool ShouldInitializeFreshData;
+    
+    public static bool PlayerCurrentWep01Eq;
+    public static bool PlayerCurrentWep02Eq;
 
     private void Awake() {
         ShouldInitializeFreshData = sceneShouldLoadPlayerData;
 
         SetPlayerCurrentHealth();
         SetPlayerCurrentArmor();
+        SetPlayerEquipment();
     }
-
+    
     private void SetPlayerCurrentHealth() => PlayerCurrentHealth = (ShouldInitializeFreshData) 
         ? setPlayerHealthTo 
         : playerHealth.value;
@@ -40,10 +49,21 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
         ? setPlayerArmorTo 
         : playerArmor.value;
 
+    private void SetPlayerEquipment() {
+        PlayerCurrentWep01Eq = (ShouldInitializeFreshData)
+            ? setWep01IsInEqTo
+            : playerWep01IsInEq.value;
+
+        PlayerCurrentWep02Eq = (ShouldInitializeFreshData)
+            ? setWep02IsInEqTo
+            : playerWep02IsInEq.value;
+    }
 
     private void OnEnable() {
         playerHealth.value = PlayerCurrentHealth;
-
         playerArmor.value = PlayerCurrentArmor;
+        playerWep01IsInEq.value = PlayerCurrentWep01Eq;
+        playerWep02IsInEq.value = PlayerCurrentWep02Eq;
     }
+    
 }
