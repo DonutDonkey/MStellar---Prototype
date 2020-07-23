@@ -46,7 +46,7 @@ namespace Actor.AI.States {
         }
 
         public override void Tick() {
-            _navMeshAgent.SetDestination(GameObject.Find("Player").transform.position);
+            _navMeshAgent.SetDestination(_targetTransform.position);
             
             if( _cooldownTimer <= 0 && CheckForTargetInAttackDistance() )
                 PreAttack();
@@ -56,7 +56,7 @@ namespace Actor.AI.States {
         
         private void PreAttack() {
             GetComponentInParent<Animator>().Play("Attack");
-            _navMeshAgent.velocity = _navMeshAgent.velocity / 2;
+            _navMeshAgent.velocity /= 2;
             
             StartCoroutine(DoAfter(0.5f));
             

@@ -1,7 +1,9 @@
-﻿using Actor.Enemy;
+﻿using System.Collections;
+using Actor.Enemy;
 using Actor.Enemy.AI;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Actor.AI.States {
     public class Ai_S_Aggro : State {
@@ -16,17 +18,28 @@ namespace Actor.AI.States {
         private NavMeshAgent _navMeshAgent;
         
         private GameObject _projectile;
+        
+        private Transform _targetTransform;
+        
+        private Vector3 _targetPositionOffset;
 
-        private float _cooldownTimer = 0f;
+        private float _movePoints;
+        
+        private float _cooldownTimer;
         private float Cooldown { get; set; }
         
+        private bool _attackAnim;
+
         private readonly int _aggro = Animator.StringToHash("Aggro");
+        
+        private void Awake() {
+            Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
+                ? enemyData.EnemyCooldown.value
+                : 0;
 
-        private bool attackAnim;
-
-        private void Awake() => Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
-            ? enemyData.EnemyCooldown.value
-            : 0;
+            _targetTransform = GameObject.Find("Player").GetComponent<Transform>();
+            _targetPositionOffset = Vector3.zero;
+        }
 
         public override void Enter() {
             DebugInfo.DebugText.text = GetType().ToString();
@@ -39,7 +52,8 @@ namespace Actor.AI.States {
         }
 
         public override void Tick() {
-            _navMeshAgent.SetDestination(GameObject.Find("Player").transform.position);
+            if( !_attackAnim )
+                CalculateMovement();
             
             if(_cooldownTimer <= 0)
                 Attack();
@@ -47,17 +61,32 @@ namespace Actor.AI.States {
             _cooldownTimer -= Time.deltaTime;
         }
 
+        private void CalculateMovement() {
+            if ( _movePoints <= 0) {
+                _navMeshAgent.SetDestination(_targetTransform.position + _targetPositionOffset);
+                _movePoints = 30;
+            }
+            _movePoints--;
+        }
+        
         private void Attack() {
-            GetComponentInParent<Animator>().Play("Attack");
+            _navMeshAgent.transform.LookAt(_targetTransform.position);
 
-            GetComponentInParent<Transform>().LookAt(GameObject.Find("Player").transform.position);
+            _navMeshAgent.velocity = Vector3.zero;
+            _attackAnim = true;
+            
+            _targetPositionOffset = new Vector3(Random.Range(-3,3), 0f, Random.Range(-3,3));
+
+            StartCoroutine(DoAfter(0.5f));
+            
+            GetComponentInParent<Animator>().Play("Attack");
 
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
 
             if ( _projectile == null ) 
                 return;
 
-            projectileTransform.LookAt(GameObject.Find("Player").transform.position);
+            projectileTransform.LookAt(_targetTransform);
             
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
@@ -65,6 +94,12 @@ namespace Actor.AI.States {
             _projectile.SetActive(true);
 
             _cooldownTimer = Cooldown;
+        }
+
+        private IEnumerator DoAfter(float time) {
+            yield return new WaitForSeconds(time);
+
+            _attackAnim = false;
         }
 
         public override void Exit() { }
