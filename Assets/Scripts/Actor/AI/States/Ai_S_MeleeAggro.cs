@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Actor.Enemy;
 using Actor.Enemy.AI;
 using Data.Values;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Actor.AI.States {
     public class Ai_S_MeleeAggro : State{
@@ -23,6 +25,7 @@ namespace Actor.AI.States {
         private float Cooldown { get; set; }
         
         private float _movePoints;
+        private float _dodgePoints;
         
         private readonly int _aggro = Animator.StringToHash("Aggro");
 
@@ -58,11 +61,12 @@ namespace Actor.AI.States {
             if (_movePoints <= 0 || _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance) {
                 _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position);
                 
-                if (Random.Range(0, 5) > 3)
+                if ( Math.Abs(_dodgePoints % 5 ) < 1 )
                     _navMeshAgent.SetDestination(transform
-                        .TransformPoint(Vector3.right * Random.Range(-4, 4)));
+                        .TransformPoint(Vector3.right * Random.Range(-5, 5)));
                 
-                _movePoints = 40;
+                _movePoints = 50;
+                _dodgePoints++;
             }
             _movePoints--;
         }

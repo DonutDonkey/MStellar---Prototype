@@ -11,7 +11,7 @@ namespace Actor.Player {
         [SerializeField] private FloatValue maxArmor;
         [SerializeField] private FloatValue armor;
 
-        private FloatValue MaxArmor => maxArmor;
+        public FloatValue MaxArmor => maxArmor;
 
         public FloatValue Armor { get => armor; set => armor = value; }
 
@@ -19,7 +19,7 @@ namespace Actor.Player {
             Debug.Log("PlayerData.GetDamage");
             
             if (Armor > 0) {
-                Health.value -= (float)Math.Round(value / Armor);
+                Health.value -= (float)Math.Round(value / 3);
                 Armor.value -= (float)Math.Round(value);
             } else {
                 Health.value -= (float)Math.Round(value);

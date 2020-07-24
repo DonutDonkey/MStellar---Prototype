@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Actor.Enemy;
 using Actor.Enemy.AI;
 using UnityEditor;
@@ -29,6 +30,7 @@ namespace Actor.AI.States {
         private Vector3 _targetPositionOffset;
 
         private float _movePoints;
+        private float _dodgePoints;
         
         private float _cooldownTimer;
         private float Cooldown { get; set; }
@@ -71,11 +73,13 @@ namespace Actor.AI.States {
                 _targetPositionOffset = new Vector3(Random.Range(-4,4), 0f, Random.Range(-4,4));
                 _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position + _targetPositionOffset);
 
-                if (Random.Range(0, 5) > 3)
+                // if (Random.Range(0, 5) > 3)
+                if ( Math.Abs(_dodgePoints % 5 ) < 1 )
                     _navMeshAgent.SetDestination(thisTransform
-                        .TransformPoint(Vector3.right * Random.Range(-4, 4)));
-                    
-                _movePoints = 40;
+                        .TransformPoint(Vector3.right * Random.Range(-5, 5)));
+
+                _movePoints = 50;
+                _dodgePoints++;
             }
             _movePoints--;
         }
