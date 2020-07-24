@@ -19,7 +19,7 @@ namespace Actor.Player {
             Debug.Log("PlayerData.GetDamage");
             
             if (Armor > 0) {
-                Health.value -= (float)Math.Round(value / 3);
+                Health.value -= (float)Math.Round(value / 2);
                 Armor.value -= (float)Math.Round(value);
             } else {
                 Health.value -= (float)Math.Round(value);
