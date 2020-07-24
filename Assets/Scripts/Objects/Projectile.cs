@@ -39,8 +39,10 @@ namespace Objects {
         private void OnCollisionEnter(Collision other) {
             Debug.Log("Projectile.OnCollisionEnter " + other.gameObject.name);
 
-            if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName))
-                 return;
+            if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName)) {
+                gameObject.SetActive(false);
+                return;
+            }
 
             SpawnImpactParticles(out var particleObj);
             particleObj.SetActive(true);

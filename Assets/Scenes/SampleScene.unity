@@ -9999,11 +9999,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_ACT_ENEMY_01
       objectReference: {fileID: 0}
-    - target: {fileID: 1428645031528096956, guid: ab6259130879a4143b9465c62bf31084,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1772238723256925702, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10191,11 +10186,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 1941966737342022043, guid: de86598b25772d940a7847d60f2dc4ac,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 2124002512171656592, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: m_LocalPosition.x

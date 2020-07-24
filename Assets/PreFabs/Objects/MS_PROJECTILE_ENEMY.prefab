@@ -4791,6 +4791,7 @@ MonoBehaviour:
   - MS_PROJECTILE_ENEMY(Clone)
   - MS_PROJECTILE_WEP_02(Clone)
   - Camera-Point
+  - MS_ACT_ENEMY_02
   particleName: Enemy Explosion
 --- !u!199 &3313945544038793459
 ParticleSystemRenderer:

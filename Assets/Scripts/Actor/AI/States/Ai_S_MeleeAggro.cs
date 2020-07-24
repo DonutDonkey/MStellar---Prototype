@@ -55,9 +55,14 @@ namespace Actor.AI.States {
         }
 
         private void CalculateMovement() {
-            if (_movePoints <= 0) {
+            if (_movePoints <= 0 || _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance) {
                 _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position);
-                _movePoints = 30f;
+                
+                if (Random.Range(0, 5) > 3)
+                    _navMeshAgent.SetDestination(transform
+                        .TransformPoint(Vector3.right * Random.Range(-4, 4)));
+                
+                _movePoints = 40;
             }
             _movePoints--;
         }
