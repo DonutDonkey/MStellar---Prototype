@@ -2,6 +2,7 @@
 using Actor.Enemy;
 using Actor.Enemy.AI;
 using Data.Values;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,7 +40,7 @@ namespace Actor.AI.States {
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.red;
             DebugInfo.HearingColor = Color.red;
-            
+
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
         }
@@ -84,5 +85,16 @@ namespace Actor.AI.States {
         private void Attack() => _targetData.TakeDamage(enemyDamage.value);
 
         public override void Exit() { }
+
+        Color debugC = new Color(1,0.5f,0.5f);
+        private void OnDrawGizmos() {
+            if ( _navMeshAgent == null )
+                return;
+            
+            Handles.color = debugC;
+            Handles.DrawAAPolyLine(_navMeshAgent.path.corners);
+            
+            Gizmos.DrawWireCube(_navMeshAgent.pathEndPosition, Vector3.one);
+        }
     }
 }

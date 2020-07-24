@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Actor.Enemy;
 using Actor.Enemy.AI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Actor.AI.States {
@@ -11,6 +12,7 @@ namespace Actor.AI.States {
         [SerializeField] private EnemyDebug debugInfo;
 
         [SerializeField] private Transform projectileTransform;
+        [SerializeField] private Transform thisTransform;
 
         [SerializeField] private string projectileTag;
         
@@ -34,8 +36,6 @@ namespace Actor.AI.States {
         private bool _attackAnim;
 
         private readonly int _aggro = Animator.StringToHash("Aggro");
-
-        private Transform _thisTransform;
         
         private void Awake() {
             Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
@@ -45,14 +45,13 @@ namespace Actor.AI.States {
             _targetPositionOffset = Vector3.zero;
             _enemyIncentives = GetComponentInParent<EnemyIncentives>();
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
-            _thisTransform = GetComponentInParent<Transform>();
         }
 
         public override void Enter() {
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.red;
             DebugInfo.HearingColor = Color.red;
-            
+
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
         }
@@ -66,35 +65,29 @@ namespace Actor.AI.States {
 
             _cooldownTimer -= Time.deltaTime;
         }
-
-        //debugging only remove later
-        private Vector3 debugPos;
-        private Vector3 debugOff;
+        
         private void CalculateMovement() {
-            if ( _movePoints <= 0) {
-                debugPos = _enemyIncentives.TargetTransform.position;
-                debugOff = _targetPositionOffset;
+            if ( _movePoints <= 0 || _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance ) {
+                _targetPositionOffset = new Vector3(Random.Range(-4,4), 0f, Random.Range(-4,4));
                 _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position + _targetPositionOffset);
-                _movePoints = 30;
+
+                if (Random.Range(0, 5) > 3)
+                    _navMeshAgent.SetDestination(thisTransform
+                        .TransformPoint(Vector3.right * Random.Range(-4, 4)));
+                    
+                _movePoints = 40;
             }
             _movePoints--;
         }
-
-        private void OnDrawGizmos() {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawSphere(debugPos + debugOff, 0.5f);
-        }
-
+        
         private void Attack() {
-            if( Physics.Linecast(_thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
+            if( Physics.Linecast(thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
                 return;
             
             _navMeshAgent.transform.LookAt(_enemyIncentives.TargetTransform.position);
 
             _navMeshAgent.velocity = Vector3.zero;
             _attackAnim = true;
-            
-            _targetPositionOffset = new Vector3(Random.Range(-4,4), 0f, Random.Range(-4,4));
 
             StartCoroutine(DoAfter(0.5f));
             
@@ -122,5 +115,16 @@ namespace Actor.AI.States {
         }
 
         public override void Exit() { }
+        
+        Color debugC = new Color(1,0.5f,0.5f);
+        private void OnDrawGizmos() {
+            if ( _navMeshAgent == null )
+                return;
+            
+            Handles.color = debugC;
+            Handles.DrawAAPolyLine(_navMeshAgent.path.corners);
+            
+            Gizmos.DrawWireCube(_navMeshAgent.pathEndPosition, Vector3.one);
+        }
     }
 }
