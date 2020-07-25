@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2709387003824795034}
   - component: {fileID: 2709387003824795035}
   - component: {fileID: 2709387003824795036}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MS_PROJECTILE_WEP_02
   m_TagString: Projectile 01
   m_Icon: {fileID: 0}

@@ -1,4 +1,5 @@
-﻿using Data.GameObjectsData;
+﻿using System;
+using Data.GameObjectsData;
 using UnityEngine;
 
 namespace Actor.Player.Weapons {
@@ -11,6 +12,8 @@ namespace Actor.Player.Weapons {
         
         [SerializeField] private Transform projectileTransform;
 
+        [SerializeField] protected UnityEngine.Camera cam;
+        
         private GameObject _projectile;
         
         public float Cooldown { get; set; }
@@ -21,11 +24,21 @@ namespace Actor.Player.Weapons {
 
         private void Awake() => Cooldown = 0f;
 
+        private void Start() {
+            if(WeaponData.Ammunition != null) 
+                WeaponData.Ammunition.value = (WeaponData.Ammunition.value > WeaponData.MaxAmmunition.value)
+                    ? WeaponData.MaxAmmunition.value
+                    : WeaponData.Ammunition.value;
+        }
+
         private void OnEnable() => IsCurrentlyEquipped = true;
 
         private void OnDisable() => IsCurrentlyEquipped = false;
 
         public virtual void Attack() {
+            if(WeaponData.Ammunition <= 0)
+                return;
+            
             GetComponent<Animator>().Play("Attack");
             
             _projectile = ObjectPooler.SharedInstance.GetPooledObject(weaponData.ProjectileObjectTag);
@@ -35,6 +48,7 @@ namespace Actor.Player.Weapons {
             
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
+            _projectile.transform.forward  = cam.transform.forward;
             _projectile.SetActive(true);
 
             weaponData.Ammunition -= 1;

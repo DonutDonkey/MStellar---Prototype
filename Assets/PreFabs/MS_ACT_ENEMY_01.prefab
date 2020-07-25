@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7183084279753840700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_H_UP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423822917807760840}
   - component: {fileID: 423822917807760841}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsDamaged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423822918279209956}
   - component: {fileID: 423822918279209957}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsTargetDead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334507338011326346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_L_DOWN_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3787890507377688159}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsHurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2239125501627701773}
   - component: {fileID: 1428645031528096957}
   - component: {fileID: 2239125501627701775}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MS_ACT_ENEMY_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4700328160217323235}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_L_UP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352423005362229993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_L_DOWN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2794447311190184919}
   - component: {fileID: 698981140976895167}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125500761215000}
   - component: {fileID: 2239125500761215001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_S_Agitated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239125500901814824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ENEMY_PROJECTILE_INIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239125501042783913}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: '[ALL CONDITIONS]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125501091588288}
   - component: {fileID: 2239125501091588289}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_S_IdlePassive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125501227628661}
   - component: {fileID: 2239125501227628662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsNotSeenOrHeard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 2239125501338495565}
   - component: {fileID: 2239125501338495564}
   - component: {fileID: 2239125501338495563}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239125501444808137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: '[ALL STATES LIST]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125501492991919}
   - component: {fileID: 2239125501492991904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_CheckIfCanHear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125501609079604}
   - component: {fileID: 2239125501609079605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsInFov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239125501851038628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: '[AI MANAGER]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 2239125501882193138}
   - component: {fileID: 2239125501882193140}
   - component: {fileID: 2239125501882193139}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DEBUG TEXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125501896184084}
   - component: {fileID: 2239125501896184085}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_S_Dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 2239125501949468149}
   - component: {fileID: 2239125501949468151}
   - component: {fileID: 2239125501949468150}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DEBUG_DATA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125502093761901}
   - component: {fileID: 8887434049868447780}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_S_MeleeAggro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125502303062588}
   - component: {fileID: 2239125502303062589}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsInRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239125502405214356}
   - component: {fileID: 2239125502405214357}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AI_C_IsDead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,7 +1280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2928137403641244849}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_H_DOWN.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3841430591440148781}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_L_UP.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5274204947135214012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_HH_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1372,7 +1372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7583453502068425112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_L_DOWN.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,7 +1403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201880231779486397}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_H_DOWN.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2633916664170433072}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_H_UP.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979773143740545704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_H_DOWN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1495,7 +1495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4504281871988359702}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MAIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1530,7 +1530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92917183610188275}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HEAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6719629345327493486}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HEAD_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1348342721005243059}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_L_DOWN.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8131883329584738158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_HH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7217182128394497688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}

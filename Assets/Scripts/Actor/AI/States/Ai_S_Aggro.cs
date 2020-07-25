@@ -5,7 +5,6 @@ using Actor.Enemy.AI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Actor.AI.States {
@@ -93,7 +92,7 @@ namespace Actor.AI.States {
             _navMeshAgent.velocity = Vector3.zero;
             _attackAnim = true;
 
-            StartCoroutine(DoAfter(0.5f));
+            StartCoroutine(TurnOffAnimAfter(0.5f));
             
             GetComponentInParent<Animator>().Play("Attack");
 
@@ -107,15 +106,20 @@ namespace Actor.AI.States {
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
 
-            _projectile.SetActive(true);
+            StartCoroutine(SpawnProjectileAfter(0.5f));
 
             _cooldownTimer = Cooldown;
         }
 
-        private IEnumerator DoAfter(float time) {
+        private IEnumerator TurnOffAnimAfter(float time) {
             yield return new WaitForSeconds(time);
 
             _attackAnim = false;
+        }
+        private IEnumerator SpawnProjectileAfter(float time) {
+            yield return new WaitForSeconds(time);
+
+            _projectile.SetActive(true);
         }
 
         public override void Exit() { }

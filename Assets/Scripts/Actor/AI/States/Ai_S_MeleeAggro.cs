@@ -36,8 +36,9 @@ namespace Actor.AI.States {
             
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
             _enemyIncentives = GetComponentInParent<EnemyIncentives>();
-            _targetData = _enemyIncentives.TargetTransform.GetComponent<ActorData>();
         }
+
+        private void Start() => _targetData = _enemyIncentives.TargetTransform.GetComponent<ActorData>();
 
         public override void Enter() {
             DebugInfo.DebugText.text = GetType().ToString();

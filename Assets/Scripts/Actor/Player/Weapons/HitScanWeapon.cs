@@ -1,13 +1,12 @@
-﻿using Data.Values;
+﻿using System.Collections.Generic;
+using Data.Values;
 using UnityEngine;
 
 namespace Actor.Player.Weapons {
     public class HitScanWeapon : Weapon {
         [SerializeField] private FloatValue distance;
         [SerializeField] private FloatValue damage;
-
-        [SerializeField] private UnityEngine.Camera cam;
-
+        
         [SerializeField] private bool usesAmmo;
         
         private GameObject _particleBlood;
@@ -19,8 +18,9 @@ namespace Actor.Player.Weapons {
             
             GetComponent<Animator>().Play("Attack");
 
-            var ray = GetRayFromCamera();
 
+            var ray = GetRayFromCamera();
+            
             if (Physics.Raycast(ray, out var hit, distance.value)) {
                 if (hit.transform.gameObject.GetComponent<ActorData>() != null) {
                     hit.transform.gameObject.GetComponent<ActorData>()
@@ -36,6 +36,7 @@ namespace Actor.Player.Weapons {
                 _particleImpact.transform.position = hit.point;
                 _particleImpact.SetActive(true);
             }
+
             
             ResetWeaponCooldown();
 
@@ -54,6 +55,20 @@ namespace Actor.Player.Weapons {
             Gizmos.DrawWireSphere(transform.position, 3f);
         }
         
+        //CapsuleCast if recoil / wider?
         private Ray GetRayFromCamera() => cam.ScreenPointToRay(Input.mousePosition);
+
+        // 4 rays  with distance +-x and +-y for spread?
+        private List<Ray> GetRaysFromCamera() {
+            List<Ray> result;
+            result = new List<Ray>
+            {
+                cam.ScreenPointToRay(Input.mousePosition + new Vector3(5, 0, 0)),
+                cam.ScreenPointToRay(Input.mousePosition + new Vector3(-5, 0, 0)),
+                cam.ScreenPointToRay(Input.mousePosition + new Vector3(0, 5, 0)),
+                cam.ScreenPointToRay(Input.mousePosition + new Vector3(0, -5, 0))
+            };
+            return result;
+        }
     }
 }

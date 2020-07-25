@@ -13,9 +13,9 @@ namespace Objects {
         [SerializeField] private FloatValue damageRadius;
         [SerializeField] private FloatValue damage;
         [SerializeField] private FloatValue speed;
-
-        [SerializeField] private string [] ignoreObjectCollisionName;
+        
         [SerializeField] private string particleName;
+        [SerializeField] private string [] ignoreActorsDmg;
 
         private Rigidbody _rigidbody;
 
@@ -25,7 +25,7 @@ namespace Objects {
         { get => projectilePointTransform; set => projectilePointTransform = value; }
 
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
-
+        
         private void OnEnable() {
             _rigidbody.velocity = transform.forward * speed;
             _startingPosition = transform.position;
@@ -38,12 +38,7 @@ namespace Objects {
 
         private void OnCollisionEnter(Collision other) {
             Debug.Log("Projectile.OnCollisionEnter " + other.gameObject.name);
-
-            if (ignoreObjectCollisionName.Any(ignoreName => other.gameObject.name == ignoreName)) {
-                gameObject.SetActive(false);
-                return;
-            }
-
+            
             SpawnImpactParticles(out var particleObj);
             particleObj.SetActive(true);
 
@@ -66,10 +61,9 @@ namespace Objects {
             if(actor == null)
                 return;
 
-            if (ignoreObjectCollisionName
-                .Any(loopString => inCollider.gameObject.name.Equals(loopString)))
+            if (ignoreActorsDmg.Any(loopString => inCollider.gameObject.name == loopString)) 
                 return;
-
+            
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
         }
 
