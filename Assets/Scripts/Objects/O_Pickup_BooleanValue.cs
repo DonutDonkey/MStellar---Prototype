@@ -12,7 +12,10 @@ namespace Objects {
             if (!other.gameObject.name.Equals(actorName)) return;
             
             value.value = true;
+            
             Ui_Player_Effects.PlayGuiItemAnimation();
+            S_Manager_AudioManager.PlayClip("ItemPickup");
+            
             gameObject.SetActive(false);
         }
     }

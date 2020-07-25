@@ -3,7 +3,6 @@ using System.Linq;
 using Actor;
 using Data.Values;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 namespace Objects {
@@ -25,7 +24,7 @@ namespace Objects {
         { get => projectilePointTransform; set => projectilePointTransform = value; }
 
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
-        
+
         private void OnEnable() {
             _rigidbody.velocity = transform.forward * speed;
             _startingPosition = transform.position;
@@ -46,7 +45,7 @@ namespace Objects {
 
             foreach (var variable in hit)
                 DamageActorsIfHit(variable);
-
+            
             gameObject.SetActive(false);
         }
 

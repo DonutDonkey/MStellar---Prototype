@@ -13,8 +13,9 @@ namespace Actor.Player.Weapons {
         private GameObject _particleImpact;
 
         public override void Attack() {
-            if(usesAmmo && WeaponData.Ammunition <= 0)
-                return;
+            if(usesAmmo && WeaponData.Ammunition <= 0) return;
+            
+            if(audioSource != null) audioSource.Play(0);
             
             GetComponent<Animator>().Play("Attack");
 

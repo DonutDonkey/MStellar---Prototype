@@ -16,6 +16,8 @@ namespace Objects {
                 : data.Armor.value + pickupValue;
             
             Ui_Player_Effects.PlayGuiArmorAnimation();
+            S_Manager_AudioManager.PlayClip("ItemPickup");
+            
             gameObject.SetActive(false);
         }
 

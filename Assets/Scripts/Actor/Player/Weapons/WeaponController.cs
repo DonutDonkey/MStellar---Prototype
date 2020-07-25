@@ -84,5 +84,7 @@ namespace Actor.Player.Weapons {
         }
 
         private void Attack() => _currentActiveWeapon.Attack();
+
+        public void CallChangeActiveWeapon(int number) => ChangeActiveWeapon(number);
     }
 }

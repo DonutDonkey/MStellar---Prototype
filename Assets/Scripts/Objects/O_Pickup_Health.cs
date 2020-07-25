@@ -16,6 +16,8 @@ namespace Objects {
                 : data.Health.value + pickupValue;
             
             Ui_Player_Effects.PlayGuiHealthAnimation();
+            S_Manager_AudioManager.PlayClip("ItemPickup");
+            
             gameObject.SetActive(false);
         }
 

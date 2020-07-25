@@ -31,10 +31,11 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     public static float PlayerCurrentHealth;
     public static float PlayerCurrentArmor;
     
-    public static bool ShouldInitializeFreshData;
-    
     public static bool PlayerCurrentWep01Eq;
     public static bool PlayerCurrentWep02Eq;
+    
+    public static bool ShouldInitializeFreshData;
+    public static bool IsLoadingLevelAgain;
 
     private void Awake() {
         ShouldInitializeFreshData = sceneShouldLoadPlayerData;
@@ -77,6 +78,8 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     }
 
     private void OnEnable() {
+        if (IsLoadingLevelAgain) return;
+        
         playerWep01Ammo.value = PlayerCurrentWep01Ammo;
         playerWep02Ammo.value = PlayerCurrentWep02Ammo;
         playerHealth.value = PlayerCurrentHealth;

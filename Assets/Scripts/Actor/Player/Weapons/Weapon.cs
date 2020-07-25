@@ -1,11 +1,8 @@
-﻿using System;
-using Data.GameObjectsData;
+﻿using Data.GameObjectsData;
 using UnityEngine;
 
 namespace Actor.Player.Weapons {
     public class Weapon : MonoBehaviour {
-        [Header("References")]
-        
         [SerializeField] private GameObject weaponObject;
 
         [SerializeField] private WeaponData weaponData;
@@ -14,6 +11,7 @@ namespace Actor.Player.Weapons {
 
         [SerializeField] protected UnityEngine.Camera cam;
         
+        [SerializeField] protected AudioSource audioSource;
         private GameObject _projectile;
         
         public float Cooldown { get; set; }
@@ -38,6 +36,8 @@ namespace Actor.Player.Weapons {
         public virtual void Attack() {
             if(WeaponData.Ammunition <= 0)
                 return;
+            
+            if(audioSource != null) audioSource.Play();
             
             GetComponent<Animator>().Play("Attack");
             
