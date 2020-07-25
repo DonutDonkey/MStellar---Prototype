@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Data.GameObjectsData;
 using Data.Values;
 using UnityEngine;
 
@@ -8,16 +6,19 @@ using UnityEngine;
 public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     [Header("References")]
     
+    [SerializeField] private FloatValue playerWep01Ammo;
+    [SerializeField] private FloatValue playerWep02Ammo;
     [SerializeField] private FloatValue playerHealth;
     [SerializeField] private FloatValue playerArmor;
-
-    [SerializeField] private List<WeaponData> playerWeaponsList;
 
     [SerializeField] private BooleanValue playerWep01IsInEq;
     [SerializeField] private BooleanValue playerWep02IsInEq;
 
+
     [Header("Setting Values")] 
     
+    [SerializeField] private float setPlayerWep01AmmoTo;
+    [SerializeField] private float setPlayerWep02AmmoTo;
     [SerializeField] private float setPlayerHealthTo;
     [SerializeField] private float setPlayerArmorTo;
     
@@ -25,6 +26,8 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     [SerializeField] private bool setWep01IsInEqTo;
     [SerializeField] private bool setWep02IsInEqTo;
 
+    public static float PlayerCurrentWep01Ammo;
+    public static float PlayerCurrentWep02Ammo;
     public static float PlayerCurrentHealth;
     public static float PlayerCurrentArmor;
     
@@ -36,10 +39,24 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     private void Awake() {
         ShouldInitializeFreshData = sceneShouldLoadPlayerData;
 
+        SetScriptableObjectValues();
+    }
+
+    private void SetScriptableObjectValues() {
+        SetPlayerCurrentWep01Ammo();
+        SetPlayerCurrentWep02Ammo();
         SetPlayerCurrentHealth();
         SetPlayerCurrentArmor();
         SetPlayerEquipment();
     }
+
+    private void SetPlayerCurrentWep01Ammo() => PlayerCurrentWep01Ammo = (ShouldInitializeFreshData)
+        ? setPlayerWep01AmmoTo
+        : playerWep01Ammo.value;
+    
+    private void SetPlayerCurrentWep02Ammo() => PlayerCurrentWep02Ammo = (ShouldInitializeFreshData)
+        ? setPlayerWep02AmmoTo
+        : playerWep02Ammo.value;
     
     private void SetPlayerCurrentHealth() => PlayerCurrentHealth = (ShouldInitializeFreshData) 
         ? setPlayerHealthTo 
@@ -60,6 +77,8 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     }
 
     private void OnEnable() {
+        playerWep01Ammo.value = PlayerCurrentWep01Ammo;
+        playerWep02Ammo.value = PlayerCurrentWep02Ammo;
         playerHealth.value = PlayerCurrentHealth;
         playerArmor.value = PlayerCurrentArmor;
         playerWep01IsInEq.value = PlayerCurrentWep01Eq;
