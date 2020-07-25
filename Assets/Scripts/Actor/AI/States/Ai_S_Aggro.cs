@@ -124,11 +124,12 @@ namespace Actor.AI.States {
         private void OnDrawGizmos() {
             if ( _navMeshAgent == null )
                 return;
-            
+#if UNITY_EDITOR
             Handles.color = _debugC;
             Handles.DrawAAPolyLine(_navMeshAgent.path.corners);
             
             Gizmos.DrawWireCube(_navMeshAgent.pathEndPosition, Vector3.one);
+#endif
         }
 
         #endregion

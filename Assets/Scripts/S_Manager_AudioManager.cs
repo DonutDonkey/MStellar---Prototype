@@ -18,7 +18,7 @@ public class S_Manager_AudioManager : MonoBehaviour {
 
     private void Awake() {
         if (Instance == null) Instance = this;
-
+        
         _clipsController = _clipsController ?? new Dictionary<string, AudioClip>();
         
         foreach (var audioClipsList in clipList) 

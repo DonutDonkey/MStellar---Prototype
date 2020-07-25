@@ -1,4 +1,5 @@
-﻿using Actor.Enemy.AI;
+﻿using System.Collections;
+using Actor.Enemy.AI;
 using Data.Values;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ namespace Actor.Enemy
 
         public FloatValue EnemyCooldown => enemyCooldown;
 
+        public bool isHurt;
+        
         private FloatValue _health;
 
         private EnemyIncentives _enemyIncentives;
@@ -22,6 +25,19 @@ namespace Actor.Enemy
             Health = _health;
 
             _enemyIncentives = GetComponent<EnemyIncentives>();
+        }
+
+        public override void TakeDamage(float value) {
+            base.TakeDamage(value);
+            StartCoroutine(IsHurtState());
+        }
+
+        private IEnumerator IsHurtState() {
+            isHurt = true;
+            
+            yield return new WaitForSeconds(5f);
+
+            isHurt = false;
         }
     }
 }

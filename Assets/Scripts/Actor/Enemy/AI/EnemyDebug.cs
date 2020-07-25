@@ -36,14 +36,15 @@ namespace Actor.Enemy.AI {
         }
         
         public int steps;
-        
         private void DebugDrawFov() {
             var arcSteps = Mathf.RoundToInt(fieldOfView / steps);
             
             var fovColor = HearingColor;
             fovColor.a = 0.24f;
-            Handles.color = fovColor;
             
+#if UNITY_EDITOR
+            Handles.color = fovColor;
+
             for (var i = 0; i <= arcSteps; i++) {
                 
                 var angle = fieldOfView.value - (i * steps);
@@ -59,6 +60,7 @@ namespace Actor.Enemy.AI {
                     -arcSteps,
                     GetRadiusDistance(-angle * 0.5f));
             }
+#endif
         }
 
         private Vector3 GetStartAngle(float startAngle) => 
