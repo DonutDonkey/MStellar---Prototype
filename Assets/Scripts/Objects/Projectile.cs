@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Actor;
+using Actor.Enemy;
 using Data.Values;
 using UnityEngine;
 
@@ -60,6 +61,9 @@ namespace Objects {
             if(actor == null) return;
 
             if (ignoreActorsDmg.Any(loopString => inCollider.gameObject.name == loopString)) return;
+            
+            if(actor is EnemyData enemy)
+                enemy.gameObject.GetComponent<Animator>().Play("Hurt");
             
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
         }
