@@ -4,7 +4,7 @@ using GUI;
 using UnityEngine;
 
 namespace Objects {
-    public class O_Pickup_Health : O_Pickup {
+    public class O_Pickup_Health : O_Pickup_ActorData {
         [SerializeField] private float pickupValue;
         
         private void PickupAction(PlayerData data) {

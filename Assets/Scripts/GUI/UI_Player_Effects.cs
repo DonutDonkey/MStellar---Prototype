@@ -11,5 +11,7 @@ namespace GUI {
         public static void PlayGuiArmorAnimation()  => _guiEffectsAnimator.Play("Anim_Gui_PickupArmor");
         
         public static void PlayGuiHealthAnimation() => _guiEffectsAnimator.Play("Anim_Gui_PickupHealth");
+        
+        public static void PlayGuiItemAnimation() => _guiEffectsAnimator.Play("Anim_Gui_PickupItem");
     }
 }
