@@ -95,22 +95,23 @@ namespace Actor.AI.States {
             
             GetComponentInParent<Animator>().Play("Attack");
 
-            _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+            StartCoroutine(DoAfter(0.5f, () => {
+                _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
 
-            if ( _projectile == null ) 
-                return;
+                if (_projectile == null)
+                    return;
 
-            projectileTransform.LookAt(_enemyIncentives.TargetTransform);
-            
-            _projectile.transform.position = projectileTransform.position;
-            _projectile.transform.rotation = projectileTransform.rotation;
-            
-            StartCoroutine(DoAfter(0.5f, () => _projectile.SetActive(true)));
+                projectileTransform.LookAt(_enemyIncentives.TargetTransform);
 
+                _projectile.transform.position = projectileTransform.position;
+                _projectile.transform.rotation = projectileTransform.rotation;
+                _projectile.SetActive(true);
+            } ) );
             _cooldownTimer = Cooldown;
         }
         
         private IEnumerator DoAfter(float time, Action thisAction) {
+            Debug.Log("Coroutine started : " + thisAction.GetType());
             yield return new WaitForSeconds(time);
             thisAction();
         }

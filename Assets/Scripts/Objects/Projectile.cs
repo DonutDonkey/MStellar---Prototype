@@ -58,11 +58,9 @@ namespace Objects {
         private void DamageActorsIfHit(Component inCollider) {
             var actor = inCollider.transform.GetComponent<ActorData>();
 
-            if(actor == null)
-                return;
+            if(actor == null) return;
 
-            if (ignoreActorsDmg.Any(loopString => inCollider.gameObject.name == loopString)) 
-                return;
+            if (ignoreActorsDmg.Any(loopString => inCollider.gameObject.name == loopString)) return;
             
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
         }
@@ -71,11 +69,15 @@ namespace Objects {
             (float) Math.Round(damage.value / GetDistance(other));
 
         private float GetDistance(Transform other) => 
-            (float) Math.Round(Vector3.Distance(transform.position, other.position) );
+            (float) Math.Round(Vector3.Distance(transform.position, other.transform.position));
+
+        #region DebugInfo
 
         private void OnDrawGizmos() {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, damageRadius);
         }
+
+        #endregion
     }
 }

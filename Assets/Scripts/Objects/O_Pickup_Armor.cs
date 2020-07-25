@@ -1,5 +1,6 @@
 ﻿using Actor;
 using Actor.Player;
+using GUI;
 using UnityEngine;
 
 namespace Objects {
@@ -14,6 +15,7 @@ namespace Objects {
                 ? data.MaxArmor.value
                 : data.Armor.value + pickupValue;
             
+            Ui_Player_Effects.PlayGuiArmorAnimation();
             gameObject.SetActive(false);
         }
 
