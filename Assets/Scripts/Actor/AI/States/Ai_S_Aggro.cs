@@ -14,27 +14,27 @@ namespace Actor.AI.States {
         [SerializeField] private Transform projectileTransform;
         [SerializeField] private Transform thisTransform;
 
-        [SerializeField] private string projectileTag;
-        
         [SerializeField] private LayerMask viewMask;
         
-        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
+        [SerializeField] private string projectileTag;
+        
+        private EnemyIncentives _enemyIncentives;
         
         private NavMeshAgent _navMeshAgent;
-        
-        private GameObject _projectile;
 
-        private EnemyIncentives _enemyIncentives;
+        private GameObject _projectile;
         
         private Vector3 _targetPositionOffset;
 
         private float _movePoints;
         private float _dodgePoints;
-        
         private float _cooldownTimer;
-        private float Cooldown { get; set; }
         
         private bool _attackAnim;
+        
+        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
+        
+        private float Cooldown { get; set; }
 
         private readonly int _aggro = Animator.StringToHash("Aggro");
         
@@ -71,8 +71,7 @@ namespace Actor.AI.States {
             if ( _movePoints <= 0 || _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance ) {
                 _targetPositionOffset = new Vector3(Random.Range(-4,4), 0f, Random.Range(-4,4));
                 _navMeshAgent.SetDestination(_enemyIncentives.TargetTransform.position + _targetPositionOffset);
-
-                // if (Random.Range(0, 5) > 3)
+                
                 if ( Math.Abs(_dodgePoints % 5 ) < 1 )
                     _navMeshAgent.SetDestination(thisTransform
                         .TransformPoint(Vector3.right * Random.Range(-5, 5)));
@@ -91,8 +90,8 @@ namespace Actor.AI.States {
 
             _navMeshAgent.velocity = Vector3.zero;
             _attackAnim = true;
-
-            StartCoroutine(TurnOffAnimAfter(0.5f));
+            
+            StartCoroutine(DoAfter(0.5f, () => _attackAnim = false));
             
             GetComponentInParent<Animator>().Play("Attack");
 
@@ -105,34 +104,32 @@ namespace Actor.AI.States {
             
             _projectile.transform.position = projectileTransform.position;
             _projectile.transform.rotation = projectileTransform.rotation;
-
-            StartCoroutine(SpawnProjectileAfter(0.5f));
+            
+            StartCoroutine(DoAfter(0.5f, () => _projectile.SetActive(true)));
 
             _cooldownTimer = Cooldown;
         }
-
-        private IEnumerator TurnOffAnimAfter(float time) {
-            yield return new WaitForSeconds(time);
-
-            _attackAnim = false;
-        }
-        private IEnumerator SpawnProjectileAfter(float time) {
-            yield return new WaitForSeconds(time);
-
-            _projectile.SetActive(true);
-        }
-
-        public override void Exit() { }
         
-        Color debugC = new Color(1,0.5f,0.5f);
+        private IEnumerator DoAfter(float time, Action thisAction) {
+            yield return new WaitForSeconds(time);
+            thisAction();
+        }
+        
+        public override void Exit() { }
+
+        #region DebugInfo
+
+        private readonly Color _debugC = new Color(1,0.5f,0.5f);
         private void OnDrawGizmos() {
             if ( _navMeshAgent == null )
                 return;
             
-            Handles.color = debugC;
+            Handles.color = _debugC;
             Handles.DrawAAPolyLine(_navMeshAgent.path.corners);
             
             Gizmos.DrawWireCube(_navMeshAgent.pathEndPosition, Vector3.one);
         }
+
+        #endregion
     }
 }

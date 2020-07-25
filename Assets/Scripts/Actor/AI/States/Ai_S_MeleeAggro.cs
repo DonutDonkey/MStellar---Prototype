@@ -11,21 +11,22 @@ using Random = UnityEngine.Random;
 namespace Actor.AI.States {
     public class Ai_S_MeleeAggro : State{
         [SerializeField] private EnemyDebug debugInfo;
+        
         [SerializeField] private FloatValue enemyDamage;
         
-        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
-        
-        private ActorData _targetData;
+        private EnemyIncentives _enemyIncentives;
 
         private NavMeshAgent _navMeshAgent;
         
-        private EnemyIncentives _enemyIncentives;
-        
-        private float _cooldownTimer;
-        private float Cooldown { get; set; }
+        private ActorData _targetData;
         
         private float _movePoints;
         private float _dodgePoints;
+        private float _cooldownTimer;
+        
+        public EnemyDebug DebugInfo { get => debugInfo; set => debugInfo = value; }
+        
+        private float Cooldown { get; set; }
         
         private readonly int _aggro = Animator.StringToHash("Aggro");
 
@@ -96,15 +97,19 @@ namespace Actor.AI.States {
 
         public override void Exit() { }
 
-        Color debugC = new Color(1,0.5f,0.5f);
+        #region DebugInfo
+
+        private readonly Color _debugC = new Color(1,0.5f,0.5f);
         private void OnDrawGizmos() {
             if ( _navMeshAgent == null )
                 return;
             
-            Handles.color = debugC;
+            Handles.color = _debugC;
             Handles.DrawAAPolyLine(_navMeshAgent.path.corners);
             
             Gizmos.DrawWireCube(_navMeshAgent.pathEndPosition, Vector3.one);
         }
+
+        #endregion
     }
 }

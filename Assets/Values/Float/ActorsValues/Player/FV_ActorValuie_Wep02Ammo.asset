@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be60588224c40f6b745cd9c205c6d00, type: 3}
   m_Name: FV_ActorValuie_Wep02Ammo
   m_EditorClassIdentifier: 
-  value: 100000
+  value: 50
