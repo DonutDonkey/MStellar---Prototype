@@ -1534,7 +1534,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Actor.AI.States.Ai_S_IdlePassive
+  m_Text: 
 --- !u!1 &2549706143942700752
 GameObject:
   m_ObjectHideFlags: 0
