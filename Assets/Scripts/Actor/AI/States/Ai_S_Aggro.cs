@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Actor.Enemy;
 using Actor.Enemy.AI;
+using Objects;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,7 +13,7 @@ namespace Actor.AI.States {
     public class Ai_S_Aggro : State {
         [SerializeField] private EnemyDebug debugInfo;
 
-        [SerializeField] private Transform projectileTransform;
+        [SerializeField] private List<Transform> projectileTransform;
         [SerializeField] private Transform thisTransform;
 
         [SerializeField] private LayerMask viewMask;
@@ -101,16 +103,21 @@ namespace Actor.AI.States {
             GetComponentInParent<Animator>().Play("Attack");
 
             StartCoroutine(DoAfter(0.5f, () => {
-                _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
+                foreach (var loopTransform in projectileTransform) {
+                    
+                    _projectile = ObjectPooler.SharedInstance.GetPooledObject(projectileTag);
 
-                if (_projectile == null)
-                    return;
+                    if (_projectile == null)
+                        return;
 
-                projectileTransform.LookAt(_enemyIncentives.TargetTransform);
+                    loopTransform.LookAt(_enemyIncentives.TargetTransform);
 
-                _projectile.transform.position = projectileTransform.position;
-                _projectile.transform.rotation = projectileTransform.rotation;
-                _projectile.SetActive(true);
+                    _projectile.transform.position = loopTransform.position;
+                    _projectile.transform.rotation = loopTransform.rotation;
+                    _projectile.GetComponent<Projectile>().ProjectilePointTransform = loopTransform;
+                    
+                    _projectile.SetActive(true);
+                }
             } ) );
             _cooldownTimer = Cooldown;
             

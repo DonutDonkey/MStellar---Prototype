@@ -11,6 +11,7 @@ TagManager:
   - Projectile EN 01
   - Particle Blood
   - Hitscan Particle
+  - ProjectileEnemy03
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Enemy 02
   - Player
   - Player Projectile
-  - 
+  - Enemy 03
   - 
   - 
   - 
