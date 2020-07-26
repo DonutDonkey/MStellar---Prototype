@@ -27,9 +27,11 @@ namespace Actor.Player {
 
             ConvertToTotal();
 
-            Ui_Player_Effects.PlayGuiHurtAnimation();
 
-            if (!IsDead()) return;
+            if (!IsDead()) {
+                Ui_Player_Effects.PlayGuiHurtAnimation();
+                return;
+            }
 
             SetDeadStateForPlayer();
         }
