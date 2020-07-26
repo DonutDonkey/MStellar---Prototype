@@ -9,10 +9,11 @@ namespace Actor.AI.States {
         private static readonly int Aggro = Animator.StringToHash("Aggro");
 
         public override void Enter() {
+#if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.green;
             DebugInfo.HearingColor = Color.green;
-            
+#endif            
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(Aggro, false);
         }

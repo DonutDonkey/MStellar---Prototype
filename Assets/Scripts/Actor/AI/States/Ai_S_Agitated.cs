@@ -18,10 +18,11 @@ namespace Actor.AI.States {
         private void Awake() => _originalPosition = GetComponentInParent<Transform>().position;
 
         public override void Enter() {
+#if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.yellow;
             DebugInfo.HearingColor = Color.yellow;
-
+#endif
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
         }
 

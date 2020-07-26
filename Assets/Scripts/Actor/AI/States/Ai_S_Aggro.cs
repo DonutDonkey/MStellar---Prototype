@@ -52,10 +52,11 @@ namespace Actor.AI.States {
         }
 
         public override void Enter() {
+#if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.red;
             DebugInfo.HearingColor = Color.red;
-
+#endif
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
             _audioSource.Play();

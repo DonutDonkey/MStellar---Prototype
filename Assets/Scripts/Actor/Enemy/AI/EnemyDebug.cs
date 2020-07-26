@@ -9,7 +9,7 @@ namespace Actor.Enemy.AI {
         [SerializeField] private FloatValue hearingRadius;
         [SerializeField] private FloatValue viewRadius;
         [SerializeField] private FloatValue fieldOfView;
-
+        
         [SerializeField] private Text text;
 
         [SerializeField] private Transform debugTransform;

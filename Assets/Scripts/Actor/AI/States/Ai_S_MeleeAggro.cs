@@ -42,10 +42,11 @@ namespace Actor.AI.States {
         private void Start() => _targetData = _enemyIncentives.TargetTransform.GetComponent<ActorData>();
 
         public override void Enter() {
+#if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.red;
             DebugInfo.HearingColor = Color.red;
-
+#endif
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
         }

@@ -19,11 +19,11 @@ namespace Actor.AI.States {
 
         public override void Enter() {
             _audioSource.Play();
-            
+#if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
             DebugInfo.DebugText.color = Color.grey;
             DebugInfo.HearingColor = Color.gray;
-            
+#endif            
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
             _navMeshAgent.velocity = Vector3.zero;
             _navMeshAgent.isStopped = true;
