@@ -24,15 +24,11 @@ namespace Actor.Player {
             } else {
                 Health.value -= (float)Math.Round(value);
             }
-
             ConvertToTotal();
-
-
-            if (!IsDead()) {
-                Ui_Player_Effects.PlayGuiHurtAnimation();
-                return;
-            }
-
+            Ui_Player_Effects.PlayGuiHurtAnimation();
+            
+            if (!IsDead()) return;
+            
             SetDeadStateForPlayer();
         }
         

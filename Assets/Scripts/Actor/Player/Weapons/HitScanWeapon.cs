@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Actor.Enemy;
 using Data.Values;
 using UnityEngine;
 
@@ -24,8 +25,10 @@ namespace Actor.Player.Weapons {
             
             if (Physics.Raycast(ray, out var hit, distance.value)) {
                 if (hit.transform.gameObject.GetComponent<ActorData>() != null) {
-                    hit.transform.gameObject.GetComponent<ActorData>()
-                        .TakeDamage(DamageReductionPerFistance(hit.transform));
+                    hit.transform.gameObject.GetComponent<EnemyData>()
+                        .TakeDamage(DamageReductionPerDistance(hit.transform), 
+                            GetComponentInParent<ActorData>());
+                    
                     hit.transform.gameObject.GetComponent<Animator>().Play("Hurt");
 
                     _particleBlood = ObjectPooler.SharedInstance.GetPooledObject("Particle Blood");
@@ -45,7 +48,7 @@ namespace Actor.Player.Weapons {
                 WeaponData.Ammunition -= 1;
         }
 
-        private float DamageReductionPerFistance(Transform hitTransform) =>
+        private float DamageReductionPerDistance(Transform hitTransform) =>
             (Vector3.Distance(cam.transform.position, hitTransform.position) < 2)
                 ? damage * 2
                 : damage;

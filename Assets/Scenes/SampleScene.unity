@@ -10595,7 +10595,7 @@ PrefabInstance:
     - target: {fileID: 1428645031528096957, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: damageThreshold
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1772238723256925702, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
@@ -10878,7 +10878,7 @@ PrefabInstance:
     - target: {fileID: 1599386604482805547, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: damageThreshold
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1941966735866252342, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}

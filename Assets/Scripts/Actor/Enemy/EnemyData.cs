@@ -30,6 +30,7 @@ namespace Actor.Enemy
         }
 
         public void TakeDamage(float value, ActorData source) {
+            Debug.Log("EnemyData.TakeDamage : value:" + value + " source:" + source.gameObject.name);
             base.TakeDamage(value);
             
             StartCoroutine(IsHurtState());
