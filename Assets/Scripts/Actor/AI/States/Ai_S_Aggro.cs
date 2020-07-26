@@ -113,6 +113,9 @@ namespace Actor.AI.States {
                 _projectile.SetActive(true);
             } ) );
             _cooldownTimer = Cooldown;
+            
+            if(_enemyIncentives.TargetTransform.GetComponent<ActorData>().IsDead())
+                _enemyIncentives.LookForDefaultTarget();
         }
         
         private IEnumerator DoAfter(float time, Action thisAction) {

@@ -94,7 +94,17 @@ namespace Actor.AI.States {
         private bool CheckForTargetInAttackDistance() => 
             Vector3.Distance(transform.position, _enemyIncentives.TargetTransform.position) < 3f;
 
-        private void Attack() => _targetData.TakeDamage(enemyDamage.value);
+        private void Attack() {
+            var ad = _enemyIncentives.TargetTransform.GetComponent<ActorData>();
+
+            if (ad is EnemyData ed) {
+                ed.TakeDamage(enemyDamage.value, GetComponentInParent<ActorData>());
+                ed.gameObject.GetComponent<Animator>().Play("Hurt");
+            } else 
+                ad.TakeDamage(enemyDamage.value);
+
+            if (ad.IsDead()) _enemyIncentives.LookForDefaultTarget();
+        }
 
         public override void Exit() { }
 

@@ -3,13 +3,18 @@ using UnityEngine;
 
 namespace Actor.Enemy.AI {
     public class EnemyIncentives : StateMachineController {
-        private Transform _targetTransform;
-        public Transform TargetTransform => _targetTransform;
+        [SerializeField] private Transform defaultTransform;
         
+        private Transform _targetTransform;
+        public Transform TargetTransform { get => _targetTransform; set => _targetTransform = value; }
+
         protected override void Awake() {
             base.Awake();
 
-            _targetTransform = GameObject.Find("Player").GetComponent<Transform>();
+            _targetTransform = defaultTransform;
         }
+
+        public void LookForNewTarget(Transform target) => TargetTransform = target;
+        public void LookForDefaultTarget() => TargetTransform = defaultTransform;
     }
 }

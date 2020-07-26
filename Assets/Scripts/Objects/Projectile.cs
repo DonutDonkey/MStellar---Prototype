@@ -61,10 +61,15 @@ namespace Objects {
             if(actor == null) return;
 
             if (ignoreActorsDmg.Any(loopString => inCollider.gameObject.name == loopString)) return;
-            
-            if(actor is EnemyData enemy)
+
+            if (actor is EnemyData enemy) {
                 enemy.gameObject.GetComponent<Animator>().Play("Hurt");
-            
+                enemy.TakeDamage(GetFallowDamage(inCollider.transform), 
+                    ProjectilePointTransform.GetComponentInParent<ActorData>());
+
+                return;
+            }
+
             actor.TakeDamage(GetFallowDamage(inCollider.transform));
         }
 

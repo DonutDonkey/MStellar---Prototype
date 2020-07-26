@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be60588224c40f6b745cd9c205c6d00, type: 3}
   m_Name: FV_EN02_INCENTIVE_RADIUS
   m_EditorClassIdentifier: 
-  value: 20
+  value: 14

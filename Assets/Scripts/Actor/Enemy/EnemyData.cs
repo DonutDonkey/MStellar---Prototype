@@ -8,9 +8,11 @@ namespace Actor.Enemy
     public class EnemyData : ActorData {
         [SerializeField] private FloatValue enemyCooldown;
 
+        [SerializeField] private float damageThreshold;
         public FloatValue EnemyCooldown => enemyCooldown;
 
-        public bool isHurt;
+        private bool _isHurt;
+        public  bool IsHurt { get => _isHurt; set => _isHurt = value; }
         
         private FloatValue _health;
 
@@ -27,17 +29,21 @@ namespace Actor.Enemy
             _enemyIncentives = GetComponent<EnemyIncentives>();
         }
 
-        public override void TakeDamage(float value) {
+        public void TakeDamage(float value, ActorData source) {
             base.TakeDamage(value);
+            
             StartCoroutine(IsHurtState());
+
+            if (value > damageThreshold && !source.gameObject.name.Equals(gameObject.name))
+                _enemyIncentives.LookForNewTarget(source.GetComponent<Transform>());
         }
 
         private IEnumerator IsHurtState() {
-            isHurt = true;
+            IsHurt = true;
             
             yield return new WaitForSeconds(5f);
 
-            isHurt = false;
+            IsHurt = false;
         }
     }
 }

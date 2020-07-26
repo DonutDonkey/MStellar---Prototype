@@ -4512,6 +4512,11 @@ PrefabInstance:
       propertyPath: otherTransform
       value: 
       objectReference: {fileID: 1181226784}
+    - target: {fileID: 1941966737342022041, guid: de86598b25772d940a7847d60f2dc4ac,
+        type: 3}
+      propertyPath: defaultTransform
+      value: 
+      objectReference: {fileID: 1181226784}
     - target: {fileID: 1941966737427769507, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: otherTransform
@@ -5600,6 +5605,11 @@ PrefabInstance:
       propertyPath: otherTransform
       value: 
       objectReference: {fileID: 1181226784}
+    - target: {fileID: 1941966737342022041, guid: de86598b25772d940a7847d60f2dc4ac,
+        type: 3}
+      propertyPath: defaultTransform
+      value: 
+      objectReference: {fileID: 1181226784}
     - target: {fileID: 1941966737427769507, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: otherTransform
@@ -6399,6 +6409,11 @@ PrefabInstance:
     - target: {fileID: 1941966736666792363, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: otherTransform
+      value: 
+      objectReference: {fileID: 1181226784}
+    - target: {fileID: 1941966737342022041, guid: de86598b25772d940a7847d60f2dc4ac,
+        type: 3}
+      propertyPath: defaultTransform
       value: 
       objectReference: {fileID: 1181226784}
     - target: {fileID: 1941966737427769507, guid: de86598b25772d940a7847d60f2dc4ac,
@@ -10577,6 +10592,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_ACT_ENEMY_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1428645031528096957, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: damageThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1772238723256925702, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10640,6 +10660,11 @@ PrefabInstance:
     - target: {fileID: 2239125501492991904, guid: ab6259130879a4143b9465c62bf31084,
         type: 3}
       propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1181226784}
+    - target: {fileID: 2239125501627701775, guid: ab6259130879a4143b9465c62bf31084,
+        type: 3}
+      propertyPath: defaultTransform
       value: 
       objectReference: {fileID: 1181226784}
     m_RemovedComponents: []
@@ -10850,6 +10875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_ACT_ENEMY_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1599386604482805547, guid: de86598b25772d940a7847d60f2dc4ac,
+        type: 3}
+      propertyPath: damageThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1941966735866252342, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: targetTransform
@@ -10860,6 +10890,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1941966737342022041, guid: de86598b25772d940a7847d60f2dc4ac,
+        type: 3}
+      propertyPath: defaultTransform
+      value: 
+      objectReference: {fileID: 1181226784}
     - target: {fileID: 2124002512171656592, guid: de86598b25772d940a7847d60f2dc4ac,
         type: 3}
       propertyPath: m_LocalPosition.x
