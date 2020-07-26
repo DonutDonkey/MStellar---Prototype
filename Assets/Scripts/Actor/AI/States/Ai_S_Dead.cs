@@ -27,6 +27,8 @@ namespace Actor.AI.States {
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
             _navMeshAgent.velocity = Vector3.zero;
             _navMeshAgent.isStopped = true;
+            _navMeshAgent.height = 0;
+            _navMeshAgent.radius = 0;
             
             GetComponentInParent<Animator>().SetBool(Aggro, false);
             GetComponentInParent<Animator>().SetBool(IsDead, true);

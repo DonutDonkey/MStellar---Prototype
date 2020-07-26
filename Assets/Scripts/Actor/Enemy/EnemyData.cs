@@ -9,14 +9,16 @@ namespace Actor.Enemy
         [SerializeField] private FloatValue enemyCooldown;
 
         [SerializeField] private float damageThreshold;
-        public FloatValue EnemyCooldown => enemyCooldown;
+        
+        private EnemyIncentives _enemyIncentives;
+        private FloatValue _health;
+        
+        private float _ogDamageTreshold;
 
         private bool _isHurt;
         public  bool IsHurt { get => _isHurt; set => _isHurt = value; }
         
-        private FloatValue _health;
-
-        private EnemyIncentives _enemyIncentives;
+        public FloatValue EnemyCooldown => enemyCooldown;
 
         protected override void Awake() {
             base.Awake();
@@ -27,16 +29,21 @@ namespace Actor.Enemy
             Health = _health;
 
             _enemyIncentives = GetComponent<EnemyIncentives>();
+            _ogDamageTreshold = damageThreshold;
         }
 
         public void TakeDamage(float value, ActorData source) {
             Debug.Log("EnemyData.TakeDamage : value:" + value + " source:" + source.gameObject.name);
             base.TakeDamage(value);
+
+            damageThreshold -= value;
             
             StartCoroutine(IsHurtState());
 
-            if (value > damageThreshold && !source.gameObject.name.Equals(gameObject.name))
-                _enemyIncentives.LookForNewTarget(source.GetComponent<Transform>());
+            if (!(damageThreshold <= 0) || source.gameObject.name.Equals(gameObject.name)) return;
+            
+            _enemyIncentives.LookForNewTarget(source.GetComponent<Transform>());
+            damageThreshold = _ogDamageTreshold;
         }
 
         private IEnumerator IsHurtState() {
