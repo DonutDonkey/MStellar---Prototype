@@ -21,6 +21,8 @@ namespace Actor.AI.States {
         private EnemyIncentives _enemyIncentives;
         
         private NavMeshAgent _navMeshAgent;
+        
+        private AudioSource _audioSource;
 
         private GameObject _projectile;
         
@@ -42,7 +44,8 @@ namespace Actor.AI.States {
             Cooldown = (GetComponentInParent<ActorData>() is EnemyData enemyData)
                 ? enemyData.EnemyCooldown.value
                 : 0;
-            
+
+            _audioSource = GetComponent<AudioSource>();
             _targetPositionOffset = Vector3.zero;
             _enemyIncentives = GetComponentInParent<EnemyIncentives>();
             _navMeshAgent = GetComponentInParent<NavMeshAgent>();
@@ -55,6 +58,7 @@ namespace Actor.AI.States {
 
             var anim = GetComponentInParent<Animator>();
             anim.SetBool(_aggro, true);
+            _audioSource.Play();
         }
 
         public override void Tick() {
