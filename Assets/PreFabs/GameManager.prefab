@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9948774474651765}
   - component: {fileID: 9948774474651770}
+  - component: {fileID: 9948775100573599}
+  - component: {fileID: 9948775100573600}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,12 +47,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToPool:
   - objectToPool: {fileID: 0}
+    amountToPool: 5
+  - objectToPool: {fileID: 0}
+    amountToPool: 5
+  - objectToPool: {fileID: 0}
+    amountToPool: 20
+  - objectToPool: {fileID: 0}
     amountToPool: 10
+  - objectToPool: {fileID: 0}
+    amountToPool: 4
+  - objectToPool: {fileID: 0}
+    amountToPool: 4
   - objectToPool: {fileID: 0}
     amountToPool: 10
   - objectToPool: {fileID: 0}
     amountToPool: 10
-  - objectToPool: {fileID: 0}
-    amountToPool: 10
-  - objectToPool: {fileID: 0}
-    amountToPool: 0
+--- !u!114 &9948775100573599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9948774474651771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014470f93a034ba4b910ee768a2a815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWep01Ammo: {fileID: 11400000, guid: 108db13f20ae5fc448263910fcffccd5, type: 2}
+  playerWep02Ammo: {fileID: 11400000, guid: c25823cc5ba113148a8ed704c432fc8c, type: 2}
+  playerHealth: {fileID: 11400000, guid: 7eada92bf6553184796e401dc3468c48, type: 2}
+  playerArmor: {fileID: 11400000, guid: ba2b7523f9c2ee94e9c231c67764193d, type: 2}
+  playerWep01IsInEq: {fileID: 11400000, guid: 351bb26a41f6e9a4091567b08fca476b, type: 2}
+  playerWep02IsInEq: {fileID: 11400000, guid: 6a020f3d3814f624e9e5b2751d7278b9, type: 2}
+  setPlayerWep01AmmoTo: 0
+  setPlayerWep02AmmoTo: 0
+  setPlayerHealthTo: 100
+  setPlayerArmorTo: 0
+  sceneShouldLoadPlayerData: 1
+  setWep01IsInEqTo: 0
+  setWep02IsInEqTo: 0
+--- !u!114 &9948775100573600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9948774474651771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354ea27867574be439cf7ecc71be5f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

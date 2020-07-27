@@ -68,8 +68,7 @@ namespace Actor.Player.Weapons {
             _canSwitchWeapons = true;
 
         }
-
-        //TODO: Inventory logic
+        
         private bool IsInInventory(int weaponNumber) => weapons[weaponNumber].GetComponent<Weapon>().WeaponData.IsInEq;
 
         private void ChangeActiveWeapon(int number) {

@@ -90,10 +90,12 @@ namespace Actor.AI.States {
         }
         
         private void Attack() {
-            if(_enemyIncentives.TargetTransform.GetComponent<ActorData>().IsDead())
+            if (_enemyIncentives.TargetTransform.GetComponent<ActorData>().IsDead()) {
                 _enemyIncentives.LookForDefaultTarget();
+                return; // TODO: be removed if fucky
+            }
             
-            if( Physics.Linecast(thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
+            if ( Physics.Linecast(thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
                 return;
             
             _navMeshAgent.transform.LookAt(_enemyIncentives.TargetTransform.position);

@@ -10502,10 +10502,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
       propertyPath: itemsToPool.Array.data[0].objectToPool
       value: 
       objectReference: {fileID: 1144004333}
@@ -10526,86 +10522,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7690749324730746745}
     - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.data[4].amountToPool
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
       propertyPath: itemsToPool.Array.data[5].objectToPool
       value: 
       objectReference: {fileID: 891754998366809217}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.data[5].amountToPool
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.data[2].amountToPool
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
       propertyPath: itemsToPool.Array.data[6].objectToPool
       value: 
       objectReference: {fileID: 3313945544220766952}
     - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.data[6].amountToPool
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
       propertyPath: itemsToPool.Array.data[7].objectToPool
       value: 
       objectReference: {fileID: 4148951054071832255}
-    - target: {fileID: 9948774474651770, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
-      propertyPath: itemsToPool.Array.data[7].amountToPool
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 9948774474651771, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 073291fb62c291f4aa4e2261e5820795, type: 3}
---- !u!1 &9948775100573598 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9948774474651771, guid: 073291fb62c291f4aa4e2261e5820795,
-    type: 3}
-  m_PrefabInstance: {fileID: 9948775100573597}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9948775100573599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9948775100573598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 014470f93a034ba4b910ee768a2a815e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerWep01Ammo: {fileID: 11400000, guid: 108db13f20ae5fc448263910fcffccd5, type: 2}
-  playerWep02Ammo: {fileID: 11400000, guid: c25823cc5ba113148a8ed704c432fc8c, type: 2}
-  playerHealth: {fileID: 11400000, guid: 7eada92bf6553184796e401dc3468c48, type: 2}
-  playerArmor: {fileID: 11400000, guid: ba2b7523f9c2ee94e9c231c67764193d, type: 2}
-  playerWep01IsInEq: {fileID: 11400000, guid: 351bb26a41f6e9a4091567b08fca476b, type: 2}
-  playerWep02IsInEq: {fileID: 11400000, guid: 6a020f3d3814f624e9e5b2751d7278b9, type: 2}
-  setPlayerWep01AmmoTo: 0
-  setPlayerWep02AmmoTo: 0
-  setPlayerHealthTo: 100
-  setPlayerArmorTo: 0
-  sceneShouldLoadPlayerData: 1
-  setWep01IsInEqTo: 0
-  setWep02IsInEqTo: 0
---- !u!114 &9948775100573600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9948775100573598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 354ea27867574be439cf7ecc71be5f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &543450651851586427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675352501521482162, guid: 4d092b4e1db831f4da48920a344d8a29,
