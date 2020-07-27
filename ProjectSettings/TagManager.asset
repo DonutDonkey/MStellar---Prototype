@@ -12,6 +12,7 @@ TagManager:
   - Particle Blood
   - Hitscan Particle
   - ProjectileEnemy03
+  - Enemy03 Explosion
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Player
   - Player Projectile
   - Enemy 03
-  - 
+  - Enemy 03 Projectile
   - 
   - 
   - 
