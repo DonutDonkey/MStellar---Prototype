@@ -18,6 +18,7 @@ namespace Actor.AI.States {
         private void Awake() => _audioSource = GetComponent<AudioSource>();
 
         public override void Enter() {
+            GetComponentInParent<Animator>().SetBool(IsDead, true);
             _audioSource.Play();
 #if UNITY_EDITOR
             DebugInfo.DebugText.text = GetType().ToString();
@@ -31,7 +32,6 @@ namespace Actor.AI.States {
             _navMeshAgent.radius = 0;
             
             GetComponentInParent<Animator>().SetBool(Aggro, false);
-            GetComponentInParent<Animator>().SetBool(IsDead, true);
 
             GetComponentInParent<CapsuleCollider>().enabled = false;
 

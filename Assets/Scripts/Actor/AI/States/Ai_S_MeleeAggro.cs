@@ -96,14 +96,13 @@ namespace Actor.AI.States {
 
         private void Attack() {
             var ad = _enemyIncentives.TargetTransform.GetComponent<ActorData>();
+            if (ad.IsDead()) _enemyIncentives.LookForDefaultTarget();
 
             if (ad is EnemyData ed) {
                 ed.TakeDamage(enemyDamage.value, GetComponentInParent<ActorData>());
                 ed.gameObject.GetComponent<Animator>().Play("Hurt");
             } else 
                 ad.TakeDamage(enemyDamage.value);
-
-            if (ad.IsDead()) _enemyIncentives.LookForDefaultTarget();
         }
 
         public override void Exit() { }

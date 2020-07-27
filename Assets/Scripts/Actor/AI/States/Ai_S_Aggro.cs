@@ -90,6 +90,9 @@ namespace Actor.AI.States {
         }
         
         private void Attack() {
+            if(_enemyIncentives.TargetTransform.GetComponent<ActorData>().IsDead())
+                _enemyIncentives.LookForDefaultTarget();
+            
             if( Physics.Linecast(thisTransform.position, _enemyIncentives.TargetTransform.position, viewMask) )
                 return;
             
@@ -120,9 +123,6 @@ namespace Actor.AI.States {
                 }
             } ) );
             _cooldownTimer = Cooldown;
-            
-            if(_enemyIncentives.TargetTransform.GetComponent<ActorData>().IsDead())
-                _enemyIncentives.LookForDefaultTarget();
         }
         
         private IEnumerator DoAfter(float time, Action thisAction) {
