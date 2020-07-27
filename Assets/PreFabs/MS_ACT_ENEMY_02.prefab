@@ -500,7 +500,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 31125bb617c86ce46b627c6a409a8b80, type: 2}
   health: {fileID: 11400000, guid: 31125bb617c86ce46b627c6a409a8b80, type: 2}
   enemyCooldown: {fileID: 11400000, guid: d9c60faea362a8f439b7fe71c1ca16f8, type: 2}
-  damageThreshold: 30
+  damageThreshold: 20
 --- !u!114 &1941966737342022041
 MonoBehaviour:
   m_ObjectHideFlags: 0
