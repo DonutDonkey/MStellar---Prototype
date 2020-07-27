@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2681b452b6264d908b6f552a81b464fb, type: 3}
-  m_Name: OModelViewOffset
+  m_Name: Fv_Options_ModelViewOffset
   m_EditorClassIdentifier: 
   offsetValue: {x: 0, y: -0.26, z: 0.1}
   centeredOffsetValue: {x: 0, y: -0.064, z: 0.32}

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ecc852754ca4784abdcd730d94ff106, type: 3}
-  m_Name: Input_Vertical
+  m_Name: Sv_Input_Vertical
   m_EditorClassIdentifier: 
   value: Vertical
