@@ -12,6 +12,7 @@ namespace Actor.Player {
         
         private void Awake() {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             _characterController = GetComponent<CharacterController>();
         }
 

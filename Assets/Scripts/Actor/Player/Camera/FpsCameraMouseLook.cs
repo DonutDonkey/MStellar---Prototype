@@ -14,9 +14,7 @@ namespace Actor.Player.Camera {
 
         private float _xRotation = 0f;
         
-        private void Awake() {
-            _playerInputHandler = GetComponent<PlayerInputHandler>();
-        }
+        private void Awake() => _playerInputHandler = GetComponent<PlayerInputHandler>();
 
         private void Update() {
             var vertical = _playerInputHandler.GetMouseVerticalMovement();

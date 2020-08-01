@@ -19,11 +19,13 @@ public class S_Manager_AudioManager : MonoBehaviour {
     private void Awake() {
         if (Instance == null) Instance = this;
         
-        _clipsController = _clipsController ?? new Dictionary<string, AudioClip>();
-        
-        foreach (var audioClipsList in clipList) 
-            _clipsController.Add(audioClipsList.clipName, audioClipsList.clip);
-        
+        S_Manager_AudioManager._clipsController = _clipsController ?? new Dictionary<string, AudioClip>();
+
+        if (_clipsController.Count == 0) {
+            foreach (var audioClipsList in clipList)
+                _clipsController.Add(audioClipsList.clipName, audioClipsList.clip);
+        }
+
         _audioSource = GetComponent<AudioSource>();
     }
 
