@@ -40,6 +40,8 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     private void Awake() {
         ShouldInitializeFreshData = sceneShouldLoadPlayerData;
 
+        if (IsLoadingLevelAgain) return; // ok for not long term saving and loading systems
+        
         SetScriptableObjectValues();
     }
 
@@ -78,14 +80,14 @@ public class S_GameManager_ScriptableObjectsInitializer : MonoBehaviour {
     }
 
     private void OnEnable() {
-        if (IsLoadingLevelAgain) return;
-        
         playerWep01Ammo.value = PlayerCurrentWep01Ammo;
         playerWep02Ammo.value = PlayerCurrentWep02Ammo;
         playerHealth.value = PlayerCurrentHealth;
         playerArmor.value = PlayerCurrentArmor;
         playerWep01IsInEq.value = PlayerCurrentWep01Eq;
         playerWep02IsInEq.value = PlayerCurrentWep02Eq;
+
+        IsLoadingLevelAgain = false;
     }
     
 }

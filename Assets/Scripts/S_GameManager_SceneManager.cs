@@ -77,7 +77,12 @@ public class S_GameManager_SceneManager : MonoBehaviour {
         deadCanvas.gameObject.SetActive(true);
     }
 
-    public void RetryOnClick() => SceneManager.LoadSceneAsync(currentLevelId, LoadSceneMode.Single);
+    public void RetryOnClick() {
+        S_GameManager_ScriptableObjectsInitializer.IsLoadingLevelAgain = true;
+        SceneManager.LoadSceneAsync(currentLevelId, LoadSceneMode.Single);
+    }
 
     public void QuitOnClick() => Application.Quit();
+
+    public void LoadScene() => SceneManager.LoadSceneAsync(nextLevelId, LoadSceneMode.Single);
 }

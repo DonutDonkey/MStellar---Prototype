@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using GUI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 [Serializable]
 internal class SettingsValues {
@@ -17,39 +22,51 @@ internal class SettingsValues {
 }
 public class S_GameManager_GraphicsSettings : MonoBehaviour {
     private readonly SettingsValues _settings = new SettingsValues();
-
-    public static bool IsStarting = true;
+    
+    //TODO: Make it so it doesn't load always when going to main menu
     private void Start() {
-        if(!IsStarting) return;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            return;
 
         LoadGraphicSettings();
     }
 
     private void LoadGraphicSettings() {
-        _settings.Vsync = PlayerPrefs.HasKey(_settings.Vsync.ToString())
-                          && PlayerPrefs.GetInt(_settings.Vsync.ToString()) != 0;
+        _settings.Vsync = PlayerPrefs.HasKey("vSync")
+                          && PlayerPrefs.GetInt("vSync") != 0;
 
-        _settings.Fullscreeen = PlayerPrefs.HasKey(_settings.Fullscreeen.ToString()) &&
-                                PlayerPrefs.GetInt(_settings.Fullscreeen.ToString()) != 0;
+        _settings.Fullscreeen = PlayerPrefs.HasKey("fullscreen") &&
+                                PlayerPrefs.GetInt("fullscreen") != 0;
 
-        _settings.ResolutionX = PlayerPrefs.HasKey(_settings.ResolutionX.ToString())
-            ? PlayerPrefs.GetInt(_settings.ResolutionX.ToString())
+        _settings.ResolutionX = PlayerPrefs.HasKey("resX")
+            ? PlayerPrefs.GetInt("resX")
             : Screen.width;
 
-        _settings.ResolutionY = PlayerPrefs.HasKey(_settings.ResolutionY.ToString())
-            ? PlayerPrefs.GetInt(_settings.ResolutionY.ToString())
+        _settings.ResolutionY = PlayerPrefs.HasKey("resY")
+            ? PlayerPrefs.GetInt("resY")
             : Screen.height;
 
         QualitySettings.vSyncCount = _settings.Vsync ? 1 : 0;
         Screen.SetResolution(_settings.ResolutionX, _settings.ResolutionY, _settings.Fullscreeen);
     }
 
-    private void SaveGraphicSettings() {
-        PlayerPrefs.SetInt(_settings.Vsync.ToString(), _settings.Vsync ? 1 : 0);
-        PlayerPrefs.SetInt(_settings.Fullscreeen.ToString(), _settings.Fullscreeen ? 1 : 0);
-        PlayerPrefs.SetInt(_settings.ResolutionX.ToString(), _settings.ResolutionX);
-        PlayerPrefs.SetInt(_settings.ResolutionY.ToString(), _settings.ResolutionY);
+    public void SaveGraphicSettings() {
+        PlayerPrefs.SetInt("vSync", _settings.Vsync ? 1 : 0);
+        PlayerPrefs.SetInt("fullscreen", _settings.Fullscreeen ? 1 : 0);
+        PlayerPrefs.SetInt("resX", _settings.ResolutionX);
+        PlayerPrefs.SetInt("resY", _settings.ResolutionY);
         
         PlayerPrefs.Save();
+        
+        LoadGraphicSettings();
+    }
+
+    public void SetFullscreenSetting(bool value) => _settings.Fullscreeen = value;
+    
+    public void SetVsyncSetting(bool value) => _settings.Vsync = value;
+
+    public void SetResolution(int value) {
+        _settings.ResolutionX = Ui_Game_GraphicSettings.Resolutions[value].width;
+        _settings.ResolutionY = Ui_Game_GraphicSettings.Resolutions[value].height;
     }
 }
