@@ -14,7 +14,7 @@ namespace Objects {
             value.value = true;
             
             Ui_Player_Effects.PlayGuiItemAnimation();
-            S_Manager_AudioManager.PlayClip("ItemPickup");
+            S_Manager_AudioManager.PlayClip("AmmoPickup");
             
             gameObject.SetActive(false);
         }

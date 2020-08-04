@@ -21,6 +21,8 @@ namespace Objects {
                 : currentAmmo.value + value;
             
             Ui_Player_Effects.PlayGuiItemAnimation();
+            S_Manager_AudioManager.PlayClip("AmmoPickup");
+            
             gameObject.SetActive(false);
         }
     }
