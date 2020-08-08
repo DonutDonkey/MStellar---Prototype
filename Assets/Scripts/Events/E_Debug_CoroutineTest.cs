@@ -6,8 +6,8 @@ namespace Events {
     /// Class for prototyping and testing working of coroutines
     /// </summary>
     public class E_Debug_CoroutineTest : MonoBehaviour {
-
         private bool _coroutineWorking;
+        
         private void Update() {
             StartCoroutine(CoroutineTest());
         }
