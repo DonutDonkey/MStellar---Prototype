@@ -18,7 +18,7 @@ namespace Events {
         private void Awake() => _status = action == ActiveStatusOfObjects.Enable;
 
         private void FixedUpdate() {
-            if(actors.Count() != 0)
+            if(actors.Count != 0)
                 foreach (var loopActor in actors.Where(loopActor => loopActor.IsDead()))
                     actors.Remove(loopActor);
             else
