@@ -20,10 +20,10 @@ namespace Actor.Player {
                                                                       transform.forward * vertical;
 
         public float GetMouseVerticalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_VERTICAL) 
-                                                   * mouseSensitivity * Time.deltaTime;
+                                                   * mouseSensitivity;
         
         public float GetMouseHorizontalMovement() => Input.GetAxis(MsConstants.MOUSE_AXIS_NAME_HORIZONTAL) 
-                                                     * mouseSensitivity * Time.deltaTime;
+                                                     * mouseSensitivity;
         
         public float GetVelocity(Vector3 velocity) => (_characterController.isGrounded) 
             ? 0f 

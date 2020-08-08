@@ -14320,8 +14320,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5461402, y: 0.90884256, z: 4.8570385}
-  m_Center: {x: 0.34005705, y: 0.20442127, z: 2.4285173}
+  m_Size: {x: 1.5461476, y: 0.90884256, z: 3.357038}
+  m_Center: {x: 0.34005362, y: 0.20441027, z: 1.6785179}
 --- !u!1 &393292044
 GameObject:
   m_ObjectHideFlags: 0
@@ -42791,6 +42791,7 @@ MonoBehaviour:
   - {fileID: 409117145}
   - {fileID: 770625374}
   - {fileID: 746295654}
+  - {fileID: 993453921}
   objectsToEnable:
   - {fileID: 1650218218}
   otherColliderName: Player
@@ -79464,8 +79465,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5461402, y: 0.90884256, z: 4.8570385}
-  m_Center: {x: 0.34005705, y: 0.20442127, z: 2.4285173}
+  m_Size: {x: 0.54614395, y: 0.90884256, z: 4.8570385}
+  m_Center: {x: -0.15994485, y: 0.20442128, z: 2.428517}
 --- !u!1 &1716576201
 GameObject:
   m_ObjectHideFlags: 0

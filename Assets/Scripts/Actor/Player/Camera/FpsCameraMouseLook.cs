@@ -17,8 +17,8 @@ namespace Actor.Player.Camera {
         private void Awake() => _playerInputHandler = GetComponent<PlayerInputHandler>();
 
         private void Update() {
-            var vertical = _playerInputHandler.GetMouseVerticalMovement();
-            var horizontal = _playerInputHandler.GetMouseHorizontalMovement();
+            var vertical = _playerInputHandler.GetMouseVerticalMovement() * Time.deltaTime;
+            var horizontal = _playerInputHandler.GetMouseHorizontalMovement() * Time.deltaTime;
             
             _xRotation -= horizontal;
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
