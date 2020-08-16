@@ -733,7 +733,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 40b6d2ee3abdf2b4583174e19ecea501, type: 2}
   health: {fileID: 11400000, guid: 40b6d2ee3abdf2b4583174e19ecea501, type: 2}
   enemyCooldown: {fileID: 11400000, guid: d72b41334d4084b47b1cd0ebf658896f, type: 2}
-  damageThreshold: 50
+  damageThreshold: 20
 --- !u!114 &4090439231016563912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,6 +1481,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitions: []
   debugInfo: {fileID: 4090439230800442160}
+  dropList:
+  - {fileID: 353749068692526148, guid: e2efffec110f68940b9296f9d9766587, type: 3}
+  - {fileID: 5787470548084566139, guid: ea5fb0ac6cf5bb44f94735374502a744, type: 3}
 --- !u!82 &482324586562402170
 AudioSource:
   m_ObjectHideFlags: 0

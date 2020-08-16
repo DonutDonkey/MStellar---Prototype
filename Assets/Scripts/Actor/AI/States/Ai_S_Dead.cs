@@ -2,11 +2,14 @@
 using Actor.Enemy.AI;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Actor.AI.States {
     public class Ai_S_Dead : State {
         [SerializeField] private EnemyDebug debugInfo;
 
+        [SerializeField] private GameObject [] dropList;
+        
         private AudioSource _audioSource;
         
         private NavMeshAgent _navMeshAgent;
@@ -36,6 +39,10 @@ namespace Actor.AI.States {
             GetComponentInParent<CapsuleCollider>().enabled = false;
 
             S_GameManager_LocalObserver.Instance.EnemyCountAlive++;
+
+            Instantiate(dropList[Random.Range(0, dropList.Length)], 
+                transform.position + new Vector3(0,0.4f,0), 
+                new Quaternion(0,0,0, 0));
         }
 
         public override void Tick() { }

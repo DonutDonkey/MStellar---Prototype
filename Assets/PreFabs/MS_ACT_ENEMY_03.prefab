@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398918bbbf695e949b92716613315857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: {fileID: 11400000, guid: a8f067aa13e0e58409aeb048bed817e6, type: 2}
+  fieldOfView: {fileID: 11400000, guid: 0bf5fa5ca658f9948a01333145a66444, type: 2}
   viewRadius: {fileID: 11400000, guid: ce5455fd60c00d045826a3a2da90407d, type: 2}
   viewMask:
     serializedVersion: 2
@@ -1128,6 +1128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitions: []
   debugInfo: {fileID: 8939477119150096626}
+  dropList:
+  - {fileID: 919099523250454004, guid: d09626edbf4eeb344b2794922c7bca17, type: 3}
+  - {fileID: 1615165573857088160, guid: e000a65b15e8a7646a98a71a4e08d11d, type: 3}
 --- !u!82 &6437970426307167644
 AudioSource:
   m_ObjectHideFlags: 0
